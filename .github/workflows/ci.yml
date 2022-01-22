@@ -30,7 +30,7 @@ jobs:
     - name: set weatherapi environment variable
       env: 
         API_KEY: ${{ secrets.API_KEY }}
-      run: printenv API_KEY
+      run: echo $API_KEY > /dev/null
     - name: Build with Gradle
       uses: gradle/gradle-build-action@4137be6a8bf7d7133955359dbd952c0ca73b1021
       with:
