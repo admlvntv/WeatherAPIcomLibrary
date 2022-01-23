@@ -14,7 +14,7 @@
 
 > A very basic library for getting information from weatherapi.com
 
-# NOTE: This library is not complete yet. Please do not try to use this library in production until it is complete.
+## NOTE: This library is not complete yet. Please do not try to use this library in production until it is complete
 
 ### 🏠 [Homepage](comingsoon) coming soon
 
