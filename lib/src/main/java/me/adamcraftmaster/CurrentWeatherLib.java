@@ -21,10 +21,9 @@ public class CurrentWeatherLib {
      * @throws JsonMappingException
      * @throws JsonProcessingException
      */
-    private CurrentWeather currentInfoDataSource(String region) throws JsonMappingException, JsonProcessingException {
+    private CurrentWeather currentInfoDataSource(String region) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
-        CurrentWeather currentWeather = objectMapper.readValue(JSONParser.urlToJson("https://api.weatherapi.com/v1/current.json?key=" + apiKey + "&q=" + region + "&aqi=no").toString(), CurrentWeather.class);
-        return currentWeather;
+        return objectMapper.readValue(JSONParser.urlToJson("https://api.weatherapi.com/v1/current.json?key=" + apiKey + "&q=" + region + "&aqi=no").toString(), CurrentWeather.class);
     }
     
     /** 
@@ -34,7 +33,7 @@ public class CurrentWeatherLib {
      * @throws JsonMappingException
      * @throws JsonProcessingException
      */
-    public String getCurrentWeatherConditions(String region) throws JsonMappingException, JsonProcessingException {
+    public String getCurrentWeatherConditions(String region) throws JsonProcessingException {
         //returns the current condition as text
         return currentInfoDataSource(region).getCurrent().getCondition().getText();
     }
@@ -48,7 +47,7 @@ public class CurrentWeatherLib {
      * @throws JsonMappingException
      * @throws JsonProcessingException
      */
-    public double getCurrentTemperature(String region, char tempScale) throws JsonMappingException, JsonProcessingException {
+    public double getCurrentTemperature(String region, char tempScale) throws JsonProcessingException {
         switch(tempScale) {
             case 'F':
                 return currentInfoDataSource(region).getCurrent().getTempF();
