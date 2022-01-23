@@ -22,12 +22,10 @@
 
 ## Install
 
-add the following to your build.gradle
+Start by creating a libs folder in your app folder, and then add the following to your build.gradle:
 ```sh
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    // Your might already have other librarires/dependencies here you should leave them 
-    // as they are and just add your on new line
+  implementation files('libs/lib-x.x.x-SNAPSHOT.jar')
 }
 ```
 
