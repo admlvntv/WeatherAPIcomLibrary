@@ -8,7 +8,7 @@ plugins {
 }
 
 group = 'me.adamcraftmaster'
-version = '1.0.0-SNAPSHOT'
+version = '0.1.0-SNAPSHOT'
 
 repositories {
     // Use Maven Central for resolving dependencies.
@@ -20,7 +20,7 @@ publishing {
         maven(MavenPublication) {
             groupId = 'me.adamcraftmaster'
             artifactId = 'WeatherAPIcomLibrary'
-            version = '0.9.0-SNAPSHOT'
+            version = '0.1.0-SNAPSHOT'
 
             from components.java
         }
@@ -37,10 +37,7 @@ dependencies {
     implementation group: 'org.json', name: 'json', version: '20211205'
 
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.13.1'
-
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.13.1'
-
-    implementation group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-json-org', version: '2.13.1'
 
     implementation group: 'javax.annotation', name: 'javax.annotation-api', version: '1.3.2'
 
