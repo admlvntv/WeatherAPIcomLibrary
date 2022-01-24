@@ -8,6 +8,11 @@ import me.adamcraftmaster.utils.JSONParser;
 
 public class CurrentWeatherLib {
     private final String apiKey;
+
+    /**
+     * Creates a new CurrentWeatherLib.
+     * @param apiKey a valid API key from weatherapi.com
+     */
     public CurrentWeatherLib(String apiKey) {
         this.apiKey = apiKey;
     }
