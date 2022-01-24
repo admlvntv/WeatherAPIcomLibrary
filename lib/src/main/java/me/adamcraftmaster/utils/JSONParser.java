@@ -11,17 +11,10 @@ import org.json.JSONObject;
 
 /**
  * A class that parses URLs
+ * @author Deepak
+ * @see https://gist.github.com/spdeepak/00d987bfc28bf45e4fe01fd949c58d21
  */
 public final class JSONParser {
-
-    
-    /** 
-     * A function that reads a JSON object from a URL.
-     * @author Deepak
-     * @param urlString a URL as 
-     * @return JSONObject from the URL
-     * @see https://gist.github.com/spdeepak/00d987bfc28bf45e4fe01fd949c58d21
-     */
 
      /**
       * This is a utlity class, it should not be instantiated.
@@ -30,6 +23,13 @@ public final class JSONParser {
         throw new IllegalStateException("Utility class");
     }
 
+    /** 
+     * A function that reads a JSON object from a URL.
+     * @author Deepak
+     * @param urlString a URL as 
+     * @return JSONObject from the URL
+     * @see https://gist.github.com/spdeepak/00d987bfc28bf45e4fe01fd949c58d21
+     */
     public static JSONObject urlToJson(String urlString) {
         StringBuilder sb = null;
         URL url;
