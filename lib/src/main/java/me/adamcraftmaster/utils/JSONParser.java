@@ -12,7 +12,7 @@ import org.json.JSONObject;
 /**
  * A class that parses URLs
  */
-public class JSONParser {
+public final class JSONParser {
 
     
     /** 
@@ -20,7 +20,15 @@ public class JSONParser {
      * @author Deepak
      * @param urlString a URL as 
      * @return JSONObject from the URL
+     * @see https://gist.github.com/spdeepak/00d987bfc28bf45e4fe01fd949c58d21
      */
+
+     /**
+      * This is a utlity class, it should not be instantiated.
+      */
+    private JSONParser() {
+        throw new IllegalStateException("Utility class");
+    }
 
     public static JSONObject urlToJson(String urlString) {
         StringBuilder sb = null;
