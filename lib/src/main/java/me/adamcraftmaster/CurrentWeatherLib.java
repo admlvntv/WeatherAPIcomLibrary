@@ -26,7 +26,7 @@ public class CurrentWeatherLib {
      */
     private CurrentWeather currentInfoDataSource(String region) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
-        return objectMapper.readValue(JSONParser.urlToJson("https://api.weatherapi.com/v1/current.json?key=" + apiKey + "&q=" + region + "&aqi=no").toString(), CurrentWeather.class);
+        return objectMapper.readValue(JSONParser.urlToJson("https://api.weatherapi.com/v1/current.json?key=" + apiKey + "&q=" + region + "&aqi=no"), CurrentWeather.class);
     }
     
     /** 

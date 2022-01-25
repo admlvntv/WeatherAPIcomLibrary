@@ -7,12 +7,8 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.zip.GZIPInputStream;
 
-import org.json.JSONObject;
-
 /**
  * A class that parses URLs
- * @author Deepak
- * @see https://gist.github.com/spdeepak/00d987bfc28bf45e4fe01fd949c58d21
  */
 public final class JSONParser {
 
@@ -24,13 +20,11 @@ public final class JSONParser {
     }
 
     /** 
-     * A function that reads a JSON object from a URL.
-     * @author Deepak
-     * @param urlString a URL as 
-     * @return JSONObject from the URL
-     * @see https://gist.github.com/spdeepak/00d987bfc28bf45e4fe01fd949c58d21
+     * A function that reads a JSON object from a URL as a String.
+     * @param urlString a URL that contains a JSON object
+     * @return String a JSON as a string from the URL
      */
-    public static JSONObject urlToJson(String urlString) {
+    public static String urlToJson(String urlString) {
         StringBuilder sb = null;
         URL url;
         URLConnection urlCon;
@@ -38,6 +32,7 @@ public final class JSONParser {
             url = new URL(urlString);
             urlCon = url.openConnection();
             BufferedReader in = null;
+            // if using gzip, use GZIPInputStream
             if (urlCon.getHeaderField("Content-Encoding") != null
                     && urlCon.getHeaderField("Content-Encoding").equals("gzip")) {
                 in = new BufferedReader(new InputStreamReader(new GZIPInputStream(urlCon.getInputStream())));
@@ -47,18 +42,22 @@ public final class JSONParser {
             String inputLine;
             sb = new StringBuilder();
 
+            // add every new line to the string until the end of the input 
             while ((inputLine = in.readLine()) != null) {
                 sb.append(inputLine);
             }
+            // not needed anymore
             in.close();
         } catch (IOException e) {
             System.out.println("Exception while reading JSON from URL - {}" + e);
         }
         if (sb != null) {
-            return new JSONObject(sb.toString());
+            // JSON was found, return it as a string
+            return sb.toString();
         } else {
+            // no JSON was found, return an empty string
             System.out.println("No JSON Found in given URL");
-            return new JSONObject("");
+            return "";
         }
     }
 }
