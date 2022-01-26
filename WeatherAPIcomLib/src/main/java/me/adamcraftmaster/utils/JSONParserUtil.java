@@ -10,12 +10,12 @@ import java.util.zip.GZIPInputStream;
 /**
  * A class that parses URLs
  */
-public final class JSONParser {
+public final class JSONParserUtil {
 
      /**
       * This is a utlity class, it should not be instantiated.
       */
-    private JSONParser() {
+    private JSONParserUtil() {
         throw new IllegalStateException("Utility class");
     }
 
