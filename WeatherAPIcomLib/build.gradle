@@ -21,13 +21,13 @@ publishing {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/AdamCraftmaster/WeatherAPIcomLibrary")
             credentials {
-                username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
-                password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
+                username = project.findProperty("maven.user") ?: System.getenv("USERNAME")
+                password = project.findProperty("maven.key") ?: System.getenv("TOKEN")
             }
         }
     }
     publications {
-        gpr(MavenPublication) {
+        maven(MavenPublication) {
             from(components.java)
         }
     }
