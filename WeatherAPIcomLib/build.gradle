@@ -5,6 +5,8 @@ plugins {
 
     id 'maven-publish'
     id 'signing'
+
+    id "org.sonarqube" version "3.3"
 }
 
 group = 'me.adamcraftmaster'
@@ -52,6 +54,14 @@ dependencies {
 tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
+}
+
+sonarqube {
+  properties {
+    property "sonar.projectKey", "AdamCraftmaster_WeatherAPIcomLibrary"
+    property "sonar.organization", "adamcraftmaster"
+    property "sonar.host.url", "https://sonarcloud.io"
+  }
 }
 
 sourceCompatibility = 1.8
