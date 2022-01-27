@@ -12,15 +12,16 @@ import java.util.zip.GZIPInputStream;
  */
 public final class JSONParserUtil {
 
-     /**
-      * This is a utlity class, it should not be instantiated.
-      */
+    /**
+     * This is a utlity class, it should not be instantiated.
+     */
     private JSONParserUtil() {
         throw new IllegalStateException("Utility class");
     }
 
-    /** 
+    /**
      * A function that reads a JSON object from a URL as a String.
+     * 
      * @param urlString a URL that contains a JSON object
      * @return String a JSON as a string from the URL
      */
@@ -42,7 +43,7 @@ public final class JSONParserUtil {
             String inputLine;
             sb = new StringBuilder();
 
-            // add every new line to the string until the end of the input 
+            // add every new line to the string until the end of the input
             while ((inputLine = in.readLine()) != null) {
                 sb.append(inputLine);
             }
