@@ -119,10 +119,43 @@ public class CurrentWeatherLib {
     /** 
      * Checks if it is day at the given region.
      * @param region the region, can be given as US Zipcode, UK Postcode, Canada Postalcode, IP address, Latitude/Longitude (decimal degree) or city name
-     * @return boolean if it is day or not
+     * @return boolean, if it is day or not
      * @throws JsonProcessingException
      */
     public boolean checkIsDay(String region) throws JsonProcessingException {
         return currentInfoDataSource(region).getCurrent().getIsDay() == 1;
+    }
+
+    
+    /** 
+     * Gets the current wind direction in degrees.
+     * @param region the region, can be given as US Zipcode, UK Postcode, Canada Postalcode, IP address, Latitude/Longitude (decimal degree) or city name
+     * @return the degree the wind is blowing in as an integer
+     * @throws JsonProcessingException
+     */
+    public int getWindDegree(String region) throws JsonProcessingException {
+        return currentInfoDataSource(region).getCurrent().getWindDegree();
+    }
+
+    
+    /** 
+     * Gets the precipitation amount in inches.
+     * @param region the region, can be given as US Zipcode, UK Postcode, Canada Postalcode, IP address, Latitude/Longitude (decimal degree) or city name
+     * @return precipitation amount in inches
+     * @throws JsonProcessingException
+     */
+    public double getPrecipitation(String region) throws JsonProcessingException {
+        return currentInfoDataSource(region).getCurrent().getPrecipIn();
+    }
+
+    
+    /** 
+     * Gets the current humidity as a percentage.
+     * @param region the region, can be given as US Zipcode, UK Postcode, Canada Postalcode, IP address, Latitude/Longitude (decimal degree) or city name
+     * @return current humidity as a percentage
+     * @throws JsonProcessingException
+     */
+    public int getHumidity(String region) throws JsonProcessingException {
+        return currentInfoDataSource(region).getCurrent().getHumidity();
     }
 }
