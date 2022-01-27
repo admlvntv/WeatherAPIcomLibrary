@@ -27,12 +27,30 @@ jobs:
         distribution: 'temurin'
     - name: make gradle wrapper executable
       run: chmod +x ./gradlew
+    - name: Cache SonarCloud packages
+      uses: actions/cache@v1
+      with:
+        path: ~/.sonar/cache
+        key: ${{ runner.os }}-sonar
+        restore-keys: ${{ runner.os }}-sonar
+    - name: Cache Gradle packages
+      uses: actions/cache@v1
+      with:
+        path: ~/.gradle/caches
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
+        restore-keys: ${{ runner.os }}-gradle
     - name: Build with Gradle and set weatherapi environment variable
       uses: gradle/gradle-build-action@b9c806c75d3cb8998f905077e62bb670e7fa7e02
       env: 
         API_KEY: ${{ secrets.API_KEY }}
       with:
         arguments: build
+    - name: Build and analyze
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        API_KEY: ${{ secrets.API_KEY }}
+      run: ./gradlew build sonarqube --info
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2.3.1
       with:
