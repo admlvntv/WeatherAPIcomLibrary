@@ -3,6 +3,8 @@ package me.adamcraftmaster;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import me.adamcraftmaster.enums.SpeedScaleEnum;
+import me.adamcraftmaster.enums.TempScaleEnum;
 import me.adamcraftmaster.schema.currentweather.*;
 import me.adamcraftmaster.utils.JSONParserUtil;
 
@@ -67,19 +69,15 @@ public class CurrentWeatherLib {
     /** 
      * Gets the current feels like temperature from a given region as text
      * @param region the region, can be given as US Zipcode, UK Postcode, Canada Postalcode, IP address, Latitude/Longitude (decimal degree) or city name
-     * @param tempScale the scale of temperature, send 'F','f','C', or 'c' defaults to celcius if invalid tempScale given
+     * @param tempScale the scale of temperature, use the TempScaleEnum enum for temperature scale, defaults to celcius if invalid tempScale given
      * @return temperature in either farenheight or celcius, depending on tempScale
      * @throws JsonProcessingException
      */
-    public double getCurrentFeelsLikeTemp(String region, char tempScale) throws JsonProcessingException {
+    public double getCurrentFeelsLikeTemp(String region, TempScaleEnum tempScale) throws JsonProcessingException {
         switch(tempScale) {
-            case 'F':
+            case FARENHEIGHT:
                 return currentInfoDataSource(region).getCurrent().getFeelslikeF();
-            case 'f':
-                return currentInfoDataSource(region).getCurrent().getFeelslikeF();
-            case 'C':
-                return currentInfoDataSource(region).getCurrent().getFeelslikeC();
-            case 'c':
+            case CELCIUS:
                 return currentInfoDataSource(region).getCurrent().getFeelslikeC();
             default:
                 //defaults to celcius if no valid tempScale given
@@ -101,15 +99,15 @@ public class CurrentWeatherLib {
     /** 
      * Gets the current wind speed.
      * @param region the region, can be given as US Zipcode, UK Postcode, Canada Postalcode, IP address, Latitude/Longitude (decimal degree) or city name
-     * @param unit the unit of speed, send "mph" or "kph" defaults to kilometers per hour if invalid unit given
+     * @param unit the unit of speed, use the SpeedScaleEnum for unit, defaults to kilometers per hour if invalid unit given
      * @return wind speed in either miles per hour or kilometers per hour, depending on unit
      * @throws JsonProcessingException
      */
-    public double getWindSpeed(String region, String unit) throws JsonProcessingException {
+    public double getWindSpeed(String region, SpeedScaleEnum unit) throws JsonProcessingException {
         switch(unit) {
-            case "mph":
+            case MILES_PER_HOUR:
                 return currentInfoDataSource(region).getCurrent().getWindMph();
-            case "kph":
+            case KILOMETERS_PER_HOUR:
                 return currentInfoDataSource(region).getCurrent().getWindKph();
             default:
                 //defaults to kilometers per hour if no valid unit given
