@@ -10,6 +10,8 @@
   <a href="https://twitter.com/adamcraftmaster" target="_blank">
     <img alt="Twitter: adamcraftmaster" src="https://img.shields.io/twitter/follow/adamcraftmaster.svg?style=social" />
   </a>
+  <a href="https://deepsource.io/gh/AdamCraftmaster/WeatherAPIcomLibrary/?ref=repository-badge}" target="_blank"><img alt="DeepSource" title="DeepSource" src="https://deepsource.io/gh/AdamCraftmaster/WeatherAPIcomLibrary.svg/?label=active+issues&show_trend=true&token=pTzYv__GyfUsBo5sKE5DZIRD"/>
+  </a>
 </p>
 
 > A very basic library for getting information from weatherapi.com
