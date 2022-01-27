@@ -45,7 +45,7 @@ jobs:
       uses: actions/upload-artifact@v2.3.1
       with:
         name: Artifacts
-        path: lib/build/libs/
+        path: WeatherAPIcomLib/build/libs/
   sonarbuild:
       name: Sonar Build
       runs-on: ubuntu-latest
