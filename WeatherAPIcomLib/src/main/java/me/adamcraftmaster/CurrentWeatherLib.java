@@ -73,21 +73,17 @@ public class CurrentWeatherLib {
    *
    * @param region the region, can be given as US Zipcode, UK Postcode, Canada Postalcode, IP
    *     address, Latitude/Longitude (decimal degree) or city name
-   * @param tempScale the scale of temperature, send 'F','f','C', or 'c' defaults to celcius if
-   *     invalid tempScale given
+   * @param tempScale the scale of temperature, use the TempScaleEnum enum for temperature scale,
+   *     defaults to celcius if invalid tempScale given
    * @return temperature in either farenheight or celcius, depending on tempScale
    * @throws JsonProcessingException
    */
-  public double getCurrentTemperature(String region, char tempScale)
+  public double getCurrentTemperature(String region, TempScaleEnum tempScale)
       throws JsonProcessingException {
     switch (tempScale) {
-      case 'F':
+      case FARENHEIGHT:
         return currentInfoDataSource(region).getCurrent().getTempF();
-      case 'f':
-        return currentInfoDataSource(region).getCurrent().getTempF();
-      case 'C':
-        return currentInfoDataSource(region).getCurrent().getTempC();
-      case 'c':
+      case CELCIUS:
         return currentInfoDataSource(region).getCurrent().getTempC();
       default:
         // defaults to celcius if no valid tempScale given
