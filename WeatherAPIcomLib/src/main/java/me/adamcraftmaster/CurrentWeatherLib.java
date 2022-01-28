@@ -43,7 +43,7 @@ public class CurrentWeatherLib {
    * @return a deserialized JSON inside the CurrentWeather object
    * @throws JsonProcessingException
    */
-  private CurrentWeather currentInfoDataSource(String region) throws JsonProcessingException {
+  private final CurrentWeather currentInfoDataSource(String region) throws JsonProcessingException {
     ObjectMapper objectMapper = new ObjectMapper();
     return objectMapper.readValue(
         JSONParserUtil.urlToJson(
@@ -63,7 +63,7 @@ public class CurrentWeatherLib {
    * @return weather condition, for example: Clear
    * @throws JsonProcessingException
    */
-  public String getCurrentWeatherConditions(String region) throws JsonProcessingException {
+  public final String getCurrentWeatherConditions(String region) throws JsonProcessingException {
     // returns the current condition as text
     return currentInfoDataSource(region).getCurrent().getCondition().getText();
   }
@@ -78,7 +78,7 @@ public class CurrentWeatherLib {
    * @return temperature in either farenheight or celcius, depending on tempScale
    * @throws JsonProcessingException
    */
-  public double getCurrentTemperature(String region, TempScaleEnum tempScale)
+  public final double getCurrentTemperature(String region, TempScaleEnum tempScale)
       throws JsonProcessingException {
     switch (tempScale) {
       case FARENHEIGHT:
@@ -101,7 +101,7 @@ public class CurrentWeatherLib {
    * @return temperature in either farenheight or celcius, depending on tempScale
    * @throws JsonProcessingException
    */
-  public double getCurrentFeelsLikeTemp(String region, TempScaleEnum tempScale)
+  public final double getCurrentFeelsLikeTemp(String region, TempScaleEnum tempScale)
       throws JsonProcessingException {
     switch (tempScale) {
       case FARENHEIGHT:
@@ -122,7 +122,7 @@ public class CurrentWeatherLib {
    * @return uv index as a double
    * @throws JsonProcessingException
    */
-  public double getUVIndex(String region) throws JsonProcessingException {
+  public final double getUVIndex(String region) throws JsonProcessingException {
     return currentInfoDataSource(region).getCurrent().getUv();
   }
 
@@ -156,7 +156,7 @@ public class CurrentWeatherLib {
    * @return boolean, if it is day or not
    * @throws JsonProcessingException
    */
-  public boolean checkIsDay(String region) throws JsonProcessingException {
+  public final boolean checkIsDay(String region) throws JsonProcessingException {
     return currentInfoDataSource(region).getCurrent().getIsDay() == 1;
   }
 
@@ -180,7 +180,7 @@ public class CurrentWeatherLib {
    * @return precipitation amount in inches
    * @throws JsonProcessingException
    */
-  public double getPrecipitation(String region) throws JsonProcessingException {
+  public final double getPrecipitation(String region) throws JsonProcessingException {
     return currentInfoDataSource(region).getCurrent().getPrecipIn();
   }
 
@@ -192,7 +192,7 @@ public class CurrentWeatherLib {
    * @return current humidity as a percentage
    * @throws JsonProcessingException
    */
-  public int getHumidity(String region) throws JsonProcessingException {
+  public final int getHumidity(String region) throws JsonProcessingException {
     return currentInfoDataSource(region).getCurrent().getHumidity();
   }
 }
