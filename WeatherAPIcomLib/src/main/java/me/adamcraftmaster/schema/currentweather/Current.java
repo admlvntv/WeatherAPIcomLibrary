@@ -56,7 +56,7 @@ import javax.annotation.Generated;
 public class Current {
 
   @JsonProperty("last_updated_epoch")
-  private Integer lastUpdatedEpoch;
+  private int lastUpdatedEpoch;
 
   @JsonProperty("last_updated")
   private String lastUpdated;
@@ -68,7 +68,7 @@ public class Current {
   private Double tempF;
 
   @JsonProperty("is_day")
-  private Integer isDay;
+  private int isDay;
 
   @JsonProperty("condition")
   private Condition condition;
@@ -80,7 +80,7 @@ public class Current {
   private Double windKph;
 
   @JsonProperty("wind_degree")
-  private Integer windDegree;
+  private int windDegree;
 
   @JsonProperty("wind_dir")
   private String windDir;
@@ -98,10 +98,10 @@ public class Current {
   private Double precipIn;
 
   @JsonProperty("humidity")
-  private Integer humidity;
+  private int humidity;
 
   @JsonProperty("cloud")
-  private Integer cloud;
+  private int cloud;
 
   @JsonProperty("feelslike_c")
   private Double feelslikeC;
@@ -127,16 +127,16 @@ public class Current {
   @JsonIgnore private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
   @JsonProperty("last_updated_epoch")
-  public Integer getLastUpdatedEpoch() {
+  public int getLastUpdatedEpoch() {
     return lastUpdatedEpoch;
   }
 
   @JsonProperty("last_updated_epoch")
-  public void setLastUpdatedEpoch(Integer lastUpdatedEpoch) {
+  public void setLastUpdatedEpoch(int lastUpdatedEpoch) {
     this.lastUpdatedEpoch = lastUpdatedEpoch;
   }
 
-  public Current withLastUpdatedEpoch(Integer lastUpdatedEpoch) {
+  public Current withLastUpdatedEpoch(int lastUpdatedEpoch) {
     this.lastUpdatedEpoch = lastUpdatedEpoch;
     return this;
   }
@@ -187,16 +187,16 @@ public class Current {
   }
 
   @JsonProperty("is_day")
-  public Integer getIsDay() {
+  public int getIsDay() {
     return isDay;
   }
 
   @JsonProperty("is_day")
-  public void setIsDay(Integer isDay) {
+  public void setIsDay(int isDay) {
     this.isDay = isDay;
   }
 
-  public Current withIsDay(Integer isDay) {
+  public Current withIsDay(int isDay) {
     this.isDay = isDay;
     return this;
   }
@@ -247,16 +247,16 @@ public class Current {
   }
 
   @JsonProperty("wind_degree")
-  public Integer getWindDegree() {
+  public int getWindDegree() {
     return windDegree;
   }
 
   @JsonProperty("wind_degree")
-  public void setWindDegree(Integer windDegree) {
+  public void setWindDegree(int windDegree) {
     this.windDegree = windDegree;
   }
 
-  public Current withWindDegree(Integer windDegree) {
+  public Current withWindDegree(int windDegree) {
     this.windDegree = windDegree;
     return this;
   }
@@ -337,31 +337,31 @@ public class Current {
   }
 
   @JsonProperty("humidity")
-  public Integer getHumidity() {
+  public int getHumidity() {
     return humidity;
   }
 
   @JsonProperty("humidity")
-  public void setHumidity(Integer humidity) {
+  public void setHumidity(int humidity) {
     this.humidity = humidity;
   }
 
-  public Current withHumidity(Integer humidity) {
+  public Current withHumidity(int humidity) {
     this.humidity = humidity;
     return this;
   }
 
   @JsonProperty("cloud")
-  public Integer getCloud() {
+  public int getCloud() {
     return cloud;
   }
 
   @JsonProperty("cloud")
-  public void setCloud(Integer cloud) {
+  public void setCloud(int cloud) {
     this.cloud = cloud;
   }
 
-  public Current withCloud(Integer cloud) {
+  public Current withCloud(int cloud) {
     this.cloud = cloud;
     return this;
   }

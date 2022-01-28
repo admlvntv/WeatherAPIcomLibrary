@@ -59,7 +59,7 @@ public class Location {
   private String tzId;
 
   @JsonProperty("localtime_epoch")
-  private Integer localtimeEpoch;
+  private int localtimeEpoch;
 
   @JsonProperty("localtime")
   private String localtime;
@@ -157,16 +157,16 @@ public class Location {
   }
 
   @JsonProperty("localtime_epoch")
-  public Integer getLocaltimeEpoch() {
+  public int getLocaltimeEpoch() {
     return localtimeEpoch;
   }
 
   @JsonProperty("localtime_epoch")
-  public void setLocaltimeEpoch(Integer localtimeEpoch) {
+  public void setLocaltimeEpoch(int localtimeEpoch) {
     this.localtimeEpoch = localtimeEpoch;
   }
 
-  public Location withLocaltimeEpoch(Integer localtimeEpoch) {
+  public Location withLocaltimeEpoch(int localtimeEpoch) {
     this.localtimeEpoch = localtimeEpoch;
     return this;
   }
