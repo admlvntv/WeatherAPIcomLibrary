@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"me.adamcraftmaster"},{"l":"me.adamcraftmaster.schema.currentweather"},{"l":"me.adamcraftmaster.utils"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"me.adamcraftmaster"},{"l":"me.adamcraftmaster.enums"},{"l":"me.adamcraftmaster.schema.currentweather"},{"l":"me.adamcraftmaster.utils"}];updateSearchResults();
