@@ -17,16 +17,22 @@
 package me.adamcraftmaster;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.jupiter.api.Test;
 
 class LibraryTest {
   private String apiKey = System.getenv("API_KEY");
 
   @Test
-  void someLibraryMethodReturnsTrue() {
-    CurrentWeatherLib classUnderTest = new CurrentWeatherLib(apiKey);
-    // assertTrue(classUnderTest.someLibraryMethod(), "someLibraryMethod should return 'true'");
-    assertTrue(true, "true should be true");
+  /** test that zip code 10025 return tz id America/New_York */
+  void testTzIdNewYork() {
+    LocationInfoLib classUnderTest = new LocationInfoLib(apiKey);
+    try {
+      String tzId = classUnderTest.getTzDatabaseId("10025");
+      assertEquals("America/New_York", tzId, "tzId should be America/New_York");
+    } catch (JsonProcessingException e) {
+      fail("JsonProcessingException should not be thrown"); 
+    }
   }
+
 }
