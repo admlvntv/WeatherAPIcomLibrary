@@ -25,6 +25,7 @@ import me.adamcraftmaster.utils.JSONParserUtil;
 
 public class CurrentWeatherLib {
   private final String apiKey;
+  private final String localJson;
 
   /**
    * Creates a new CurrentWeatherLib.
@@ -33,6 +34,22 @@ public class CurrentWeatherLib {
    */
   public CurrentWeatherLib(String apiKey) {
     this.apiKey = apiKey;
+    this.localJson = null;
+  }
+
+  /**
+   * Creates a new CurrentWeatherLib with an existing JSON file for information.
+   *
+   * <p>This constructor is primarily used for testing, as it takes advantage of local given, and
+   * potentially outdated data.
+   *
+   * @param apiKey a valid API key from weatherapi.com
+   * @param localJson a json as a String containing the current weather data from a current.json
+   *     from weatherapi.com
+   */
+  public CurrentWeatherLib(String apiKey, String localJson) {
+    this.apiKey = apiKey;
+    this.localJson = localJson;
   }
 
   /**
@@ -45,14 +62,18 @@ public class CurrentWeatherLib {
    */
   private final CurrentWeather currentInfoDataSource(String region) throws JsonProcessingException {
     ObjectMapper objectMapper = new ObjectMapper();
-    return objectMapper.readValue(
-        JSONParserUtil.urlToJson(
-            "https://api.weatherapi.com/v1/current.json?key="
-                + apiKey
-                + "&q="
-                + region
-                + "&aqi=no"),
-        CurrentWeather.class);
+    if (localJson != null) {
+      return objectMapper.readValue(
+          JSONParserUtil.urlToJson(
+              "https://api.weatherapi.com/v1/current.json?key="
+                  + apiKey
+                  + "&q="
+                  + region
+                  + "&aqi=no"),
+          CurrentWeather.class);
+    } else {
+      return objectMapper.readValue(localJson, CurrentWeather.class);
+    }
   }
 
   /**
