@@ -22,6 +22,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.zip.GZIPInputStream;
+import me.adamcraftmaster.exceptions.JSONGetException;
 
 /** A class that parses URLs */
 public final class JSONParserUtil {
@@ -36,8 +37,9 @@ public final class JSONParserUtil {
    *
    * @param urlString a URL that contains a JSON object
    * @return String a JSON as a string from the URL
+   * @throws JSONGetException something went wrong with getting the JSON from weatherapi.com
    */
-  public static String urlToJson(String urlString) {
+  public static String urlToJson(String urlString) throws JSONGetException {
     StringBuilder sb = null;
     URL url;
     URLConnection urlCon;
@@ -63,7 +65,8 @@ public final class JSONParserUtil {
       // not needed anymore
       in.close();
     } catch (IOException e) {
-      System.out.println("Exception while reading JSON from URL - {}" + e);
+      System.out.println("Exception while reading JSON from URL - " + e.getMessage());
+      sendError(e);
     }
     if (sb != null) {
       // JSON was found, return it as a string
@@ -72,6 +75,27 @@ public final class JSONParserUtil {
       // no JSON was found, return an empty string
       System.out.println("No JSON Found in given URL");
       return "";
+    }
+  }
+
+  
+  /** 
+   * Sends an exception based on the given IOException
+   * @param exception an exception that caused the failiure of getting the JSON from the URL.
+   * @throws JSONGetException something went wrong with getting the JSON from weatherapi.com
+   */
+  private static void sendError(IOException exception) throws JSONGetException {
+    String[] error = exception.getMessage().split(":");
+    for (String t : error) {
+      if (t.contains("400")) {
+        throw new JSONGetException("Invalid API request.");
+      } else if (t.contains("401")) {
+        throw new JSONGetException("Invalid API key.");
+      } else if (t.contains("403")) {
+        throw new JSONGetException("Disabled API key.");
+      } else {
+        throw new JSONGetException(exception.getMessage());
+      }
     }
   }
 }

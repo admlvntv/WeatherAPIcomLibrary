@@ -18,6 +18,7 @@ package me.adamcraftmaster;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import me.adamcraftmaster.exceptions.JSONGetException;
 import me.adamcraftmaster.schema.currentweather.CurrentWeather;
 import me.adamcraftmaster.utils.JSONParserUtil;
 
@@ -61,12 +62,13 @@ public class LocationInfoLib {
    * @param region the region, can be given as US Zipcode, UK Postcode, Canada Postalcode, IP
    *     address, Latitude/Longitude (decimal degree) or city name
    * @return a deserialized JSON inside the CurrentWeather object
-   * @throws JsonProcessingException
+   * @throws JsonProcessingException something went wrong with mapping the JSON from weatherapi.com
+   * @throws JSONGetException something went wrong with getting the JSON from weatherapi.com
    */
   private final CurrentWeather locationInfoDataSource(String region)
-      throws JsonProcessingException {
+      throws JsonProcessingException, JSONGetException {
     ObjectMapper objectMapper = new ObjectMapper();
-    if(localJson.equals("null")) {
+    if (localJson.equals("null")) {
       return objectMapper.readValue(
           JSONParserUtil.urlToJson(
               "https://api.weatherapi.com/v1/current.json?key="
@@ -86,9 +88,11 @@ public class LocationInfoLib {
    * @param region the region, can be given as US Zipcode, UK Postcode, Canada Postalcode, IP
    *     address, Latitude/Longitude (decimal degree) or city name
    * @return The name of the location
-   * @throws JsonProcessingException
+   * @throws JsonProcessingException something went wrong with mapping the JSON from weatherapi.com
+   * @throws JSONGetException something went wrong with getting the JSON from weatherapi.com
    */
-  public final String getLocationName(String region) throws JsonProcessingException {
+  public final String getLocationName(String region)
+      throws JsonProcessingException, JSONGetException {
     return locationInfoDataSource(region).getLocation().getName();
   }
 
@@ -98,9 +102,10 @@ public class LocationInfoLib {
    * @param region the region, can be given as US Zipcode, UK Postcode, Canada Postalcode, IP
    *     address, Latitude/Longitude (decimal degree) or city name
    * @return String
-   * @throws JsonProcessingException
+   * @throws JsonProcessingException something went wrong with mapping the JSON from weatherapi.com
+   * @throws JSONGetException something went wrong with getting the JSON from weatherapi.com
    */
-  public final String getRegion(String region) throws JsonProcessingException {
+  public final String getRegion(String region) throws JsonProcessingException, JSONGetException {
     return locationInfoDataSource(region).getLocation().getRegion();
   }
 
@@ -110,9 +115,10 @@ public class LocationInfoLib {
    * @param region the region, can be given as US Zipcode, UK Postcode, Canada Postalcode, IP
    *     address, Latitude/Longitude (decimal degree) or city name
    * @return String
-   * @throws JsonProcessingException
+   * @throws JsonProcessingException something went wrong with mapping the JSON from weatherapi.com
+   * @throws JSONGetException something went wrong with getting the JSON from weatherapi.com
    */
-  public final String getCountry(String region) throws JsonProcessingException {
+  public final String getCountry(String region) throws JsonProcessingException, JSONGetException {
     return locationInfoDataSource(region).getLocation().getName();
   }
 
@@ -122,9 +128,11 @@ public class LocationInfoLib {
    * @param region the region, can be given as US Zipcode, UK Postcode, Canada Postalcode, IP
    *     address, Latitude/Longitude (decimal degree) or city name
    * @return String
-   * @throws JsonProcessingException
+   * @throws JsonProcessingException something went wrong with mapping the JSON from weatherapi.com
+   * @throws JSONGetException something went wrong with getting the JSON from weatherapi.com
    */
-  public final String getCoordinates(String region) throws JsonProcessingException {
+  public final String getCoordinates(String region)
+      throws JsonProcessingException, JSONGetException {
     return locationInfoDataSource(region).getLocation().getLat()
         + ", "
         + locationInfoDataSource(region).getLocation().getLon();
@@ -136,9 +144,11 @@ public class LocationInfoLib {
    * @param region the region, can be given as US Zipcode, UK Postcode, Canada Postalcode, IP
    *     address, Latitude/Longitude (decimal degree) or city name
    * @return String
-   * @throws JsonProcessingException
+   * @throws JsonProcessingException something went wrong with mapping the JSON from weatherapi.com
+   * @throws JSONGetException something went wrong with getting the JSON from weatherapi.com
    */
-  public final String getTzDatabaseId(String region) throws JsonProcessingException {
+  public final String getTzDatabaseId(String region)
+      throws JsonProcessingException, JSONGetException {
     return locationInfoDataSource(region).getLocation().getTzId();
   }
 
@@ -148,9 +158,10 @@ public class LocationInfoLib {
    * @param region the region, can be given as US Zipcode, UK Postcode, Canada Postalcode, IP
    *     address, Latitude/Longitude (decimal degree) or city name
    * @return String
-   * @throws JsonProcessingException
+   * @throws JsonProcessingException something went wrong with mapping the JSON from weatherapi.com
+   * @throws JSONGetException something went wrong with getting the JSON from weatherapi.com
    */
-  public final String getLocalTime(String region) throws JsonProcessingException {
+  public final String getLocalTime(String region) throws JsonProcessingException, JSONGetException {
     return locationInfoDataSource(region).getLocation().getLocaltime();
   }
 }

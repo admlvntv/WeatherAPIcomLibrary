@@ -20,6 +20,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import me.adamcraftmaster.enums.TempScaleEnum;
+import me.adamcraftmaster.exceptions.JSONGetException;
 import org.junit.jupiter.api.Test;
 
 class LibraryTest {
@@ -40,6 +41,8 @@ class LibraryTest {
           "expected conditions is Sunny, received " + weatherConditions);
     } catch (JsonProcessingException e) {
       fail("JsonProcessingException thrown");
+    } catch (JSONGetException e) {
+      fail("JSONGetException thrown, cause: " + e.getMessage());
     }
   }
 
@@ -52,6 +55,8 @@ class LibraryTest {
           8.0, temperature, "expected temperature is 8.0 degrees celcius, received " + temperature);
     } catch (JsonProcessingException e) {
       fail("JsonProcessingException thrown");
+    } catch (JSONGetException e) {
+      fail("JSONGetException thrown, cause: " + e.getMessage());
     }
   }
 }
