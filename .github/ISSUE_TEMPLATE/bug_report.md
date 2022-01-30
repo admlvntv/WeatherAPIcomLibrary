@@ -16,6 +16,11 @@ Steps to reproduce the behavior:
 2. Click on '....'
 3. Scroll down to '....'
 4. See error
+Code that reproduces error:
+
+```java
+String temp = currentweather.getCurrentTemperature(region);
+```
 
 **Expected behavior**
 A clear and concise description of what you expected to happen.
@@ -27,9 +32,9 @@ If applicable, add screenshots to help explain your problem. Don’t forget to c
 A code block of the entire error log, don’t forget to censor private information!
 
 **Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
+ - Maven/Gradle version: [e.g. Gradle 7.3.3, Maven 3.8]
+ - Java version [e.g. Temurin 8]
+ - WeatherAPIcomLibrary Version [e.g. 1.0.1]
 
 **Additional context**
 Add any other context about the problem here.
