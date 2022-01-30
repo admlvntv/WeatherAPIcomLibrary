@@ -34,7 +34,7 @@ public class CurrentWeatherLib {
    */
   public CurrentWeatherLib(String apiKey) {
     this.apiKey = apiKey;
-    this.localJson = null;
+    this.localJson = "null";
   }
 
   /**
@@ -62,7 +62,8 @@ public class CurrentWeatherLib {
    */
   private final CurrentWeather currentInfoDataSource(String region) throws JsonProcessingException {
     ObjectMapper objectMapper = new ObjectMapper();
-    if (localJson != null) {
+    if (localJson.equals("null")) {
+      System.out.println("localJson is null");
       return objectMapper.readValue(
           JSONParserUtil.urlToJson(
               "https://api.weatherapi.com/v1/current.json?key="
@@ -72,6 +73,7 @@ public class CurrentWeatherLib {
                   + "&aqi=no"),
           CurrentWeather.class);
     } else {
+      System.out.println("localJson is not null");
       return objectMapper.readValue(localJson, CurrentWeather.class);
     }
   }

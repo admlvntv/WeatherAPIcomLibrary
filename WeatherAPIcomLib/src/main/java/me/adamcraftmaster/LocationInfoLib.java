@@ -32,7 +32,7 @@ public class LocationInfoLib {
    */
   public LocationInfoLib(String apiKey) {
     this.apiKey = apiKey;
-    this.localJson = null;
+    this.localJson = "null";
   }
 
   /**
@@ -61,7 +61,7 @@ public class LocationInfoLib {
   private final CurrentWeather locationInfoDataSource(String region)
       throws JsonProcessingException {
     ObjectMapper objectMapper = new ObjectMapper();
-    if(localJson != null) {
+    if(localJson.equals("null")) {
       return objectMapper.readValue(
           JSONParserUtil.urlToJson(
               "https://api.weatherapi.com/v1/current.json?key="
