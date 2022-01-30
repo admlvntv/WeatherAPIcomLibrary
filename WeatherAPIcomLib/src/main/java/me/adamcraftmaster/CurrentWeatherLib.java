@@ -23,6 +23,11 @@ import me.adamcraftmaster.enums.TempScaleEnum;
 import me.adamcraftmaster.schema.currentweather.CurrentWeather;
 import me.adamcraftmaster.utils.JSONParserUtil;
 
+/**
+ * A class that handles all of the current weather information.
+ *
+ * <p>this class uses the current.json from weatherapi.com.
+ */
 public class CurrentWeatherLib {
   private final String apiKey;
   private final String localJson;

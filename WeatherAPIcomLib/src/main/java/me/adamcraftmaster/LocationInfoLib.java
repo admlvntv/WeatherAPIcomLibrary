@@ -21,6 +21,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import me.adamcraftmaster.schema.currentweather.CurrentWeather;
 import me.adamcraftmaster.utils.JSONParserUtil;
 
+/**
+ * A class that handles all of the location information.
+ *
+ * <p>this class uses the current.json from weatherapi.com.
+ */
 public class LocationInfoLib {
   private final String apiKey;
   private final String localJson;
