@@ -27,15 +27,13 @@
 Start by creating a libs folder in your app folder, and then add the following to your build.gradle:
 ```sh
 dependencies {
-  implementation files('libs/lib-x.x.x-SNAPSHOT.jar')
+  implementation files('libs/WeatherAPIcomLib-x.x.x.jar')
 }
 ```
 
 ## Usage
 
-```sh
-coming soon
-```
+Read the [documentation](https://github.com/AdamCraftmaster/WeatherAPIcomLibrary/wiki)
 
 ## Run tests
 
@@ -52,7 +50,7 @@ gradle test
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](comingsoon). You can also take a look at the [contributing guide](comingsoon).
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/AdamCraftmaster/WeatherAPIcomLibrary/issues). You can also take a look at the [contributing guide](https://github.com/AdamCraftmaster/WeatherAPIcomLibrary/blob/main/CONTRIBUTING.md).
 
 ## Show your support
 
