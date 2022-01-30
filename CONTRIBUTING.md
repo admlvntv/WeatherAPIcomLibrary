@@ -86,7 +86,7 @@ We or a friendly contributor will help you fix the bug when we can.
 
 ## How to suggest a feature or enhancement
 
-First of all, our goal is to be a weather library that relies only on weatherapi.com, more weather apis might be supported in the future, but that is not any time soon. Make sure your feature is possible within the limits of what is given my weatherapi.com.
+First of all, our goal is to be a weather library that relies only on weatherapi.com, more weather APIs might be supported in the future, but that is not any time soon. Make sure your feature is possible within the limits of what is given my weatherapi.com.
 
 If you feel a feature is missing, check if others have the same issue as you, it might already be there.
 
