@@ -1,4 +1,5 @@
 me.adamcraftmaster
 me.adamcraftmaster.enums
+me.adamcraftmaster.exceptions
 me.adamcraftmaster.schema.currentweather
 me.adamcraftmaster.utils
