@@ -30,6 +30,16 @@ dependencies {
   implementation files('libs/WeatherAPIcomLib-x.x.x.jar')
 }
 ```
+or the following to your pom.xml:
+```xml
+<dependency>
+  <groupId>com.adamcraftmaster</groupId>
+  <artifactId>WeatherAPIcomLib</artifactId>
+  <version>x.x.x</version>
+    <systemPath>libs/WeatherAPIcomLib-x.x.x.jar</systemPath>
+</dependency>
+```
+or use the GitHub Packages repository for both Gradle and Maven.
 
 ## Usage
 
@@ -39,6 +49,10 @@ Read the [documentation](https://github.com/AdamCraftmaster/WeatherAPIcomLibrary
 
 ```sh
 gradle test
+```
+or
+```sh
+mvn test
 ```
 
 ## Author
