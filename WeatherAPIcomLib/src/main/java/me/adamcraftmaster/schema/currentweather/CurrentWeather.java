@@ -39,46 +39,68 @@ public class CurrentWeather {
 
   @JsonIgnore private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
+  /** @return Location */
   @JsonProperty("location")
   public Location getLocation() {
     return location;
   }
 
+  /** @param location */
   @JsonProperty("location")
   public void setLocation(Location location) {
     this.location = location;
   }
 
+  /**
+   * @param location
+   * @return CurrentWeather
+   */
   public CurrentWeather withLocation(Location location) {
     this.location = location;
     return this;
   }
 
+  /** @return Current */
   @JsonProperty("current")
   public Current getCurrent() {
     return current;
   }
 
+  /** @param current */
   @JsonProperty("current")
   public void setCurrent(Current current) {
     this.current = current;
   }
 
+  /**
+   * @param current
+   * @return CurrentWeather
+   */
   public CurrentWeather withCurrent(Current current) {
     this.current = current;
     return this;
   }
 
+  /** @return Map<String, Object> */
   @JsonAnyGetter
   public Map<String, Object> getAdditionalProperties() {
     return this.additionalProperties;
   }
 
+  /**
+   * @param name
+   * @param value
+   */
   @JsonAnySetter
   public void setAdditionalProperty(String name, Object value) {
     this.additionalProperties.put(name, value);
   }
 
+  /**
+   * @param name
+   * @param value
+   * @return CurrentWeather
+   */
   public CurrentWeather withAdditionalProperty(String name, Object value) {
     this.additionalProperties.put(name, value);
     return this;

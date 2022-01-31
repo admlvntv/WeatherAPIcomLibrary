@@ -24,7 +24,11 @@ import java.net.URLConnection;
 import java.util.zip.GZIPInputStream;
 import me.adamcraftmaster.exceptions.JSONGetException;
 
-/** A class that parses URLs */
+/**
+ * A class that parses URLs
+ *
+ * @since 0.1.0
+ */
 public final class JSONParserUtil {
 
   /** This is a utlity class, it should not be instantiated. */
@@ -38,6 +42,7 @@ public final class JSONParserUtil {
    * @param urlString a URL that contains a JSON object
    * @return String a JSON as a string from the URL
    * @throws JSONGetException something went wrong with getting the JSON from weatherapi.com
+   * @since 0.1.0
    */
   public static String urlToJson(String urlString) throws JSONGetException {
     StringBuilder sb = null;
@@ -78,11 +83,12 @@ public final class JSONParserUtil {
     }
   }
 
-  
-  /** 
+  /**
    * Sends an exception based on the given IOException
+   *
    * @param exception an exception that caused the failiure of getting the JSON from the URL.
    * @throws JSONGetException something went wrong with getting the JSON from weatherapi.com
+   * @since 0.1.0
    */
   private static void sendError(IOException exception) throws JSONGetException {
     String[] error = exception.getMessage().split(":");

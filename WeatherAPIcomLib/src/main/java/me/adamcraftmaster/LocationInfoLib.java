@@ -26,6 +26,8 @@ import me.adamcraftmaster.utils.JSONParserUtil;
  * A class that handles all of the location information.
  *
  * <p>this class uses the current.json from weatherapi.com.
+ *
+ * @since 0.1.0
  */
 public class LocationInfoLib {
   private final String apiKey;
@@ -64,6 +66,7 @@ public class LocationInfoLib {
    * @return a deserialized JSON inside the CurrentWeather object
    * @throws JsonProcessingException something went wrong with mapping the JSON from weatherapi.com
    * @throws JSONGetException something went wrong with getting the JSON from weatherapi.com
+   * @since 0.1.0
    */
   private final CurrentWeather locationInfoDataSource(String region)
       throws JsonProcessingException, JSONGetException {
@@ -90,6 +93,7 @@ public class LocationInfoLib {
    * @return The name of the location
    * @throws JsonProcessingException something went wrong with mapping the JSON from weatherapi.com
    * @throws JSONGetException something went wrong with getting the JSON from weatherapi.com
+   * @since 0.1.0
    */
   public final String getLocationName(String region)
       throws JsonProcessingException, JSONGetException {
@@ -104,6 +108,7 @@ public class LocationInfoLib {
    * @return String
    * @throws JsonProcessingException something went wrong with mapping the JSON from weatherapi.com
    * @throws JSONGetException something went wrong with getting the JSON from weatherapi.com
+   * @since 0.1.0
    */
   public final String getRegion(String region) throws JsonProcessingException, JSONGetException {
     return locationInfoDataSource(region).getLocation().getRegion();
@@ -117,6 +122,7 @@ public class LocationInfoLib {
    * @return String
    * @throws JsonProcessingException something went wrong with mapping the JSON from weatherapi.com
    * @throws JSONGetException something went wrong with getting the JSON from weatherapi.com
+   * @since 0.1.0
    */
   public final String getCountry(String region) throws JsonProcessingException, JSONGetException {
     return locationInfoDataSource(region).getLocation().getName();
@@ -130,6 +136,7 @@ public class LocationInfoLib {
    * @return String
    * @throws JsonProcessingException something went wrong with mapping the JSON from weatherapi.com
    * @throws JSONGetException something went wrong with getting the JSON from weatherapi.com
+   * @since 0.1.0
    */
   public final String getCoordinates(String region)
       throws JsonProcessingException, JSONGetException {
@@ -146,6 +153,7 @@ public class LocationInfoLib {
    * @return String
    * @throws JsonProcessingException something went wrong with mapping the JSON from weatherapi.com
    * @throws JSONGetException something went wrong with getting the JSON from weatherapi.com
+   * @since 0.1.0
    */
   public final String getTzDatabaseId(String region)
       throws JsonProcessingException, JSONGetException {
@@ -160,6 +168,7 @@ public class LocationInfoLib {
    * @return String
    * @throws JsonProcessingException something went wrong with mapping the JSON from weatherapi.com
    * @throws JSONGetException something went wrong with getting the JSON from weatherapi.com
+   * @since 0.1.0
    */
   public final String getLocalTime(String region) throws JsonProcessingException, JSONGetException {
     return locationInfoDataSource(region).getLocation().getLocaltime();

@@ -4,13 +4,12 @@ plugins {
     id 'java-library'
 
     id 'maven-publish'
-    id 'signing'
 
     id "org.sonarqube" version "3.3"
 }
 
 group = 'me.adamcraftmaster'
-version = '0.1.0-SNAPSHOT'
+version = '0.1.0'
 
 repositories {
     // Use Maven Central for resolving dependencies.
@@ -30,8 +29,67 @@ publishing {
     }
     publications {
         gpr(MavenPublication) {
-            from(components.java)
+            artifactId = 'WeatherAPIcomLibrary'
+            from components.java
+            versionMapping {
+                usage('java-api') {
+                    fromResolutionOf('runtimeClasspath')
+                }
+                usage('java-runtime') {
+                    fromResolutionResult()
+                }
+            }
+            pom {
+                name = 'WeatherAPIcomLibrary'
+                description = 'A library for getting information from weatherapi.com'
+                url = 'https://github.com/AdamCraftmaster/WeatherAPIcomLibrary'
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'adamcraftmaster'
+                        name = 'Adam Nativ'
+                        email = 'admlvntv@gmail.com'
+                    }
+                }
+            }
         }
+
+        mavenJava(MavenPublication) {
+            artifactId = 'WeatherAPIcomLibrary'
+            from components.java
+            versionMapping {
+                usage('java-api') {
+                    fromResolutionOf('runtimeClasspath')
+                }
+                usage('java-runtime') {
+                    fromResolutionResult()
+                }
+            }
+            pom {
+                name = 'WeatherAPIcomLibrary'
+                description = 'A library for getting information from weatherapi.com'
+                url = 'https://github.com/AdamCraftmaster/WeatherAPIcomLibrary'
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'adamcraftmaster'
+                        name = 'Adam Nativ'
+                        email = 'admlvntv@gmail.com'
+                    }
+                }
+            }
+        }
+
     }
 }
 
@@ -66,3 +124,14 @@ sonarqube {
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
+
+java {
+    withSourcesJar()
+    withJavadocJar()
+}
+
+javadoc {
+    if(JavaVersion.current().isJava9Compatible()) {
+        options.addBooleanOption('html5', true)
+    }
+}

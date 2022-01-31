@@ -42,61 +42,89 @@ public class Condition {
 
   @JsonIgnore private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
+  /** @return String Weather condition text */
   @JsonProperty("text")
   public String getText() {
     return text;
   }
 
+  /** @param text Weather condition text */
   @JsonProperty("text")
   public void setText(String text) {
     this.text = text;
   }
 
+  /**
+   * @param text Weather condition text
+   * @return Condition
+   */
   public Condition withText(String text) {
     this.text = text;
     return this;
   }
 
+  /** @return String Weather icon url */
   @JsonProperty("icon")
   public String getIcon() {
     return icon;
   }
 
+  /** @param icon Weather icon url */
   @JsonProperty("icon")
   public void setIcon(String icon) {
     this.icon = icon;
   }
 
+  /**
+   * @param icon Weather icon url
+   * @return Condition
+   */
   public Condition withIcon(String icon) {
     this.icon = icon;
     return this;
   }
 
+  /** @return int Weather condition unique code */
   @JsonProperty("code")
   public int getCode() {
     return code;
   }
 
+  /** @param code Weather condition unique code */
   @JsonProperty("code")
   public void setCode(int code) {
     this.code = code;
   }
 
+  /**
+   * @param code Weather condition unique code
+   * @return Condition
+   */
   public Condition withCode(int code) {
     this.code = code;
     return this;
   }
 
+  /** @return Map<String, Object> */
   @JsonAnyGetter
   public Map<String, Object> getAdditionalProperties() {
     return this.additionalProperties;
   }
 
+  /**
+   * @param name
+   * @param value
+   */
   @JsonAnySetter
   public void setAdditionalProperty(String name, Object value) {
     this.additionalProperties.put(name, value);
   }
 
+  /**
+   * @param name
+   * @param value
+   * @return Condition
+   */
   public Condition withAdditionalProperty(String name, Object value) {
     this.additionalProperties.put(name, value);
     return this;

@@ -66,136 +66,194 @@ public class Location {
 
   @JsonIgnore private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
+  /** @return String Location name */
   @JsonProperty("name")
   public String getName() {
     return name;
   }
 
+  /** @param name Location name */
   @JsonProperty("name")
   public void setName(String name) {
     this.name = name;
   }
 
+  /**
+   * @param name Location name
+   * @return Location
+   */
   public Location withName(String name) {
     this.name = name;
     return this;
   }
 
+  /** @return String Region or state of the location, if availa */
   @JsonProperty("region")
   public String getRegion() {
     return region;
   }
 
+  /** @param region Region or state of the location, if availa */
   @JsonProperty("region")
   public void setRegion(String region) {
     this.region = region;
   }
 
+  /**
+   * @param region Region or state of the location, if availa
+   * @return Location
+   */
   public Location withRegion(String region) {
     this.region = region;
     return this;
   }
 
+  /** @return String Location country */
   @JsonProperty("country")
   public String getCountry() {
     return country;
   }
 
+  /** @param country Location country */
   @JsonProperty("country")
   public void setCountry(String country) {
     this.country = country;
   }
 
+  /**
+   * @param country Location country
+   * @return Location
+   */
   public Location withCountry(String country) {
     this.country = country;
     return this;
   }
 
+  /** @return Double Latitude in decimal degree */
   @JsonProperty("lat")
   public Double getLat() {
     return lat;
   }
 
+  /** @param lat Latitude in decimal degree */
   @JsonProperty("lat")
   public void setLat(Double lat) {
     this.lat = lat;
   }
 
+  /**
+   * @param lat Latitude in decimal degree
+   * @return Location
+   */
   public Location withLat(Double lat) {
     this.lat = lat;
     return this;
   }
 
+  /** @return Double Longitude in decimal degree */
   @JsonProperty("lon")
   public Double getLon() {
     return lon;
   }
 
+  /** @param lon Longitude in decimal degree */
   @JsonProperty("lon")
   public void setLon(Double lon) {
     this.lon = lon;
   }
 
+  /**
+   * @param lon Longitude in decimal degree
+   * @return Location
+   */
   public Location withLon(Double lon) {
     this.lon = lon;
     return this;
   }
 
+  /** @return String Time zone name */
   @JsonProperty("tz_id")
   public String getTzId() {
     return tzId;
   }
 
+  /** @param tzId Time zone name */
   @JsonProperty("tz_id")
   public void setTzId(String tzId) {
     this.tzId = tzId;
   }
 
+  /**
+   * @param tzId Time zone name
+   * @return Location
+   */
   public Location withTzId(String tzId) {
     this.tzId = tzId;
     return this;
   }
 
+  /** @return int Local date and time in unix time */
   @JsonProperty("localtime_epoch")
   public int getLocaltimeEpoch() {
     return localtimeEpoch;
   }
 
+  /** @param localtimeEpoch Local date and time in unix time */
   @JsonProperty("localtime_epoch")
   public void setLocaltimeEpoch(int localtimeEpoch) {
     this.localtimeEpoch = localtimeEpoch;
   }
 
+  /**
+   * @param localtimeEpoch Local date and time in unix time
+   * @return Location
+   */
   public Location withLocaltimeEpoch(int localtimeEpoch) {
     this.localtimeEpoch = localtimeEpoch;
     return this;
   }
 
+  /** @return String Local date and time */
   @JsonProperty("localtime")
   public String getLocaltime() {
     return localtime;
   }
 
+  /** @param localtime Local date and time */
   @JsonProperty("localtime")
   public void setLocaltime(String localtime) {
     this.localtime = localtime;
   }
 
+  /**
+   * @param localtime Local date and time
+   * @return Location
+   */
   public Location withLocaltime(String localtime) {
     this.localtime = localtime;
     return this;
   }
 
+  /** @return Map<String, Object> */
   @JsonAnyGetter
   public Map<String, Object> getAdditionalProperties() {
     return this.additionalProperties;
   }
 
+  /**
+   * @param name
+   * @param value
+   */
   @JsonAnySetter
   public void setAdditionalProperty(String name, Object value) {
     this.additionalProperties.put(name, value);
   }
 
+  /**
+   * @param name
+   * @param value
+   * @return Location
+   */
   public Location withAdditionalProperty(String name, Object value) {
     this.additionalProperties.put(name, value);
     return this;

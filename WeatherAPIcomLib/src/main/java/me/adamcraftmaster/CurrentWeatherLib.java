@@ -28,6 +28,8 @@ import me.adamcraftmaster.utils.JSONParserUtil;
  * A class that handles all of the current weather information.
  *
  * <p>this class uses the current.json from weatherapi.com.
+ *
+ * @since 0.1.0
  */
 public class CurrentWeatherLib {
   private final String apiKey;
@@ -66,6 +68,7 @@ public class CurrentWeatherLib {
    * @return a deserialized JSON inside the CurrentWeather object
    * @throws JsonProcessingException something went wrong with mapping the JSON from weatherapi.com
    * @throws JSONGetException something went wrong with getting the JSON from weatherapi.com
+   * @since 0.1.0
    */
   private final CurrentWeather currentInfoDataSource(String region)
       throws JsonProcessingException, JSONGetException {
@@ -92,6 +95,7 @@ public class CurrentWeatherLib {
    * @return weather condition, for example: Clear
    * @throws JsonProcessingException something went wrong with mapping the JSON from weatherapi.com
    * @throws JSONGetException something went wrong with getting the JSON from weatherapi.com
+   * @since 0.1.0
    */
   public final String getCurrentWeatherConditions(String region)
       throws JsonProcessingException, JSONGetException {
@@ -109,6 +113,7 @@ public class CurrentWeatherLib {
    * @return temperature in either farenheight or celcius, depending on tempScale
    * @throws JsonProcessingException something went wrong with mapping the JSON from weatherapi.com
    * @throws JSONGetException something went wrong with getting the JSON from weatherapi.com
+   * @since 0.1.0
    */
   public final double getCurrentTemperature(String region, TempScaleEnum tempScale)
       throws JsonProcessingException, JSONGetException {
@@ -133,6 +138,7 @@ public class CurrentWeatherLib {
    * @return temperature in either farenheight or celcius, depending on tempScale
    * @throws JsonProcessingException something went wrong with mapping the JSON from weatherapi.com
    * @throws JSONGetException something went wrong with getting the JSON from weatherapi.com
+   * @since 0.1.0
    */
   public final double getCurrentFeelsLikeTemp(String region, TempScaleEnum tempScale)
       throws JsonProcessingException, JSONGetException {
@@ -155,6 +161,7 @@ public class CurrentWeatherLib {
    * @return uv index as a double
    * @throws JsonProcessingException something went wrong with mapping the JSON from weatherapi.com
    * @throws JSONGetException something went wrong with getting the JSON from weatherapi.com
+   * @since 0.1.0
    */
   public final double getUVIndex(String region) throws JsonProcessingException, JSONGetException {
     return currentInfoDataSource(region).getCurrent().getUv();
@@ -170,6 +177,7 @@ public class CurrentWeatherLib {
    * @return wind speed in either miles per hour or kilometers per hour, depending on unit
    * @throws JsonProcessingException something went wrong with mapping the JSON from weatherapi.com
    * @throws JSONGetException something went wrong with getting the JSON from weatherapi.com
+   * @since 0.1.0
    */
   public double getWindSpeed(String region, SpeedScaleEnum unit)
       throws JsonProcessingException, JSONGetException {
@@ -192,6 +200,7 @@ public class CurrentWeatherLib {
    * @return boolean, if it is day or not
    * @throws JsonProcessingException something went wrong with mapping the JSON from weatherapi.com
    * @throws JSONGetException something went wrong with getting the JSON from weatherapi.com
+   * @since 0.1.0
    */
   public final boolean checkIsDay(String region) throws JsonProcessingException, JSONGetException {
     return currentInfoDataSource(region).getCurrent().getIsDay() == 1;
@@ -205,6 +214,7 @@ public class CurrentWeatherLib {
    * @return the degree the wind is blowing in as an integer
    * @throws JsonProcessingException something went wrong with mapping the JSON from weatherapi.com
    * @throws JSONGetException something went wrong with getting the JSON from weatherapi.com
+   * @since 0.1.0
    */
   public int getWindDegree(String region) throws JsonProcessingException, JSONGetException {
     return currentInfoDataSource(region).getCurrent().getWindDegree();
@@ -218,6 +228,7 @@ public class CurrentWeatherLib {
    * @return precipitation amount in inches
    * @throws JsonProcessingException something went wrong with mapping the JSON from weatherapi.com
    * @throws JSONGetException something went wrong with getting the JSON from weatherapi.com
+   * @since 0.1.0
    */
   public final double getPrecipitation(String region)
       throws JsonProcessingException, JSONGetException {
@@ -232,6 +243,7 @@ public class CurrentWeatherLib {
    * @return current humidity as a percentage
    * @throws JsonProcessingException something went wrong with mapping the JSON from weatherapi.com
    * @throws JSONGetException something went wrong with getting the JSON from weatherapi.com
+   * @since 0.1.0
    */
   public final int getHumidity(String region) throws JsonProcessingException, JSONGetException {
     return currentInfoDataSource(region).getCurrent().getHumidity();
