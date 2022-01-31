@@ -81,7 +81,6 @@ public class CurrentWeather {
     return this;
   }
 
-  /** @return Map<String, Object> */
   @JsonAnyGetter
   public Map<String, Object> getAdditionalProperties() {
     return this.additionalProperties;
