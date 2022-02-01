@@ -1,6 +1,7 @@
 <h1 align="center">Welcome to WeatherAPIcomLibrary 👋</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
+  <a href="https://jitpack.io/#AdamCraftmaster/WeatherAPIcomLibrary"><img src="https://jitpack.io/v/AdamCraftmaster/WeatherAPIcomLibrary.svg" alt=""></a>
   <a href="comingsoon" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-not yet-red.svg" />
   </a>
@@ -25,7 +26,7 @@
 ## Install
 
 Start by creating a libs folder in your app folder, and then add the following to your build.gradle:
-```sh
+```groovy
 dependencies {
   implementation files('libs/WeatherAPIcomLib-x.x.x.jar')
 }
@@ -39,7 +40,35 @@ or the following to your pom.xml:
     <systemPath>libs/WeatherAPIcomLib-x.x.x.jar</systemPath>
 </dependency>
 ```
-or use the GitHub Packages repository for both Gradle and Maven.
+or use the Jitpack repository using:
+
+Gradle build.gradle:
+```groovy
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    implementation 'com.github.AdamCraftmaster:WeatherAPIcomLibrary:x.x.x'
+}
+```
+
+Maven pom.xml:
+```xml
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+
+
+<dependency>
+    <groupId>com.github.AdamCraftmaster</groupId>
+    <artifactId>WeatherAPIcomLibrary</artifactId>
+    <version>0.1.0</version>
+</dependency>
+```
 
 ## Usage
 

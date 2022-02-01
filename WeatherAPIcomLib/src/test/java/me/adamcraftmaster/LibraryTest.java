@@ -24,9 +24,9 @@ import me.adamcraftmaster.exceptions.JSONGetException;
 import org.junit.jupiter.api.Test;
 
 class LibraryTest {
-  private String apiKey = System.getenv("API_KEY");
+  private final String apiKey = System.getenv("API_KEY");
 
-  private String currentJSON =
+  private final String currentJSON =
       "{\"location\":{\"name\":\"London\",\"region\":\"CityofLondon,GreaterLondon\",\"country\":\"UnitedKingdom\",\"lat\":51.52,\"lon\":-0.11,\"tz_id\":\"Europe/London\",\"localtime_epoch\":1643552127,\"localtime\":\"2022-01-3014:15\"},\"current\":{\"last_updated_epoch\":1643547600,\"last_updated\":\"2022-01-3013:00\",\"temp_c\":8.0,\"temp_f\":46.4,\"is_day\":1,\"condition\":{\"text\":\"Sunny\",\"icon\":\"//cdn.weatherapi.com/weather/64x64/day/113.png\",\"code\":1000},\"wind_mph\":9.4,\"wind_kph\":15.1,\"wind_degree\":210,\"wind_dir\":\"SSW\",\"pressure_mb\":1031.0,\"pressure_in\":30.45,\"precip_mm\":0.0,\"precip_in\":0.0,\"humidity\":61,\"cloud\":0,\"feelslike_c\":6.8,\"feelslike_f\":44.2,\"vis_km\":10.0,\"vis_miles\":6.0,\"uv\":3.0,\"gust_mph\":5.4,\"gust_kph\":8.6}}";
 
   // The following tests are for testing CurrentWeatherLib

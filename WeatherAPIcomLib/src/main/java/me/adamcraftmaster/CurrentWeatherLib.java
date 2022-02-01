@@ -25,13 +25,14 @@ import me.adamcraftmaster.schema.currentweather.CurrentWeather;
 import me.adamcraftmaster.utils.JSONParserUtil;
 
 /**
- * A class that handles all of the current weather information.
+ * A class that handles all the current weather information.
  *
  * <p>this class uses the current.json from weatherapi.com.
  *
  * @since 0.1.0
  */
 public class CurrentWeatherLib {
+
   private final String apiKey;
   private final String localJson;
 
@@ -70,7 +71,7 @@ public class CurrentWeatherLib {
    * @throws JSONGetException something went wrong with getting the JSON from weatherapi.com
    * @since 0.1.0
    */
-  private final CurrentWeather currentInfoDataSource(String region)
+  private CurrentWeather currentInfoDataSource(String region)
       throws JsonProcessingException, JSONGetException {
     ObjectMapper objectMapper = new ObjectMapper();
     if (localJson.equals("null")) {
@@ -121,7 +122,6 @@ public class CurrentWeatherLib {
       case FARENHEIGHT:
         return currentInfoDataSource(region).getCurrent().getTempF();
       case CELCIUS:
-        return currentInfoDataSource(region).getCurrent().getTempC();
       default:
         // defaults to celcius if no valid tempScale given
         return currentInfoDataSource(region).getCurrent().getTempC();
@@ -146,7 +146,6 @@ public class CurrentWeatherLib {
       case FARENHEIGHT:
         return currentInfoDataSource(region).getCurrent().getFeelslikeF();
       case CELCIUS:
-        return currentInfoDataSource(region).getCurrent().getFeelslikeC();
       default:
         // defaults to celcius if no valid tempScale given
         return currentInfoDataSource(region).getCurrent().getFeelslikeC();
@@ -185,7 +184,6 @@ public class CurrentWeatherLib {
       case MILES_PER_HOUR:
         return currentInfoDataSource(region).getCurrent().getWindMph();
       case KILOMETERS_PER_HOUR:
-        return currentInfoDataSource(region).getCurrent().getWindKph();
       default:
         // defaults to kilometers per hour if no valid unit given
         return currentInfoDataSource(region).getCurrent().getWindKph();
