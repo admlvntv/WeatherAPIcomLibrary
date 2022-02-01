@@ -17,48 +17,7 @@ repositories {
 }
 
 publishing {
-    repositories {
-        maven {
-            name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/AdamCraftmaster/WeatherAPIcomLibrary")
-            credentials {
-                username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
-                password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
-            }
-        }
-    }
     publications {
-        gpr(MavenPublication) {
-            artifactId = 'WeatherAPIcomLibrary'
-            from components.java
-            versionMapping {
-                usage('java-api') {
-                    fromResolutionOf('runtimeClasspath')
-                }
-                usage('java-runtime') {
-                    fromResolutionResult()
-                }
-            }
-            pom {
-                name = 'WeatherAPIcomLibrary'
-                description = 'A library for getting information from weatherapi.com'
-                url = 'https://github.com/AdamCraftmaster/WeatherAPIcomLibrary'
-                licenses {
-                    license {
-                        name = 'The Apache License, Version 2.0'
-                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    }
-                }
-                developers {
-                    developer {
-                        id = 'adamcraftmaster'
-                        name = 'Adam Nativ'
-                        email = 'admlvntv@gmail.com'
-                    }
-                }
-            }
-        }
-
         mavenJava(MavenPublication) {
             artifactId = 'WeatherAPIcomLibrary'
             from components.java
@@ -77,7 +36,7 @@ publishing {
                 licenses {
                     license {
                         name = 'The Apache License, Version 2.0'
-                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        url = 'https://www.apache.org/licenses/LICENSE-2.0.txt'
                     }
                 }
                 developers {
