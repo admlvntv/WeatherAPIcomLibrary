@@ -59,7 +59,7 @@ public class LocationInfoLib {
   }
 
   /**
-   * Automatically deserialize the current.json using given API key and region.
+   * Automatically convert to object the current.json using given API key and region.
    *
    * @param region the region, can be given as US Zipcode, UK Postcode, Canada Postalcode, IP
    *     address, Latitude/Longitude (decimal degree) or city name
