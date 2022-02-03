@@ -26,7 +26,7 @@ public class Forecastday {
     @JsonProperty("date")
     private String date;
     @JsonProperty("date_epoch")
-    private Integer dateEpoch;
+    private int dateEpoch;
     @JsonProperty("day")
     private Day day;
     @JsonProperty("astro")
@@ -52,16 +52,16 @@ public class Forecastday {
     }
 
     @JsonProperty("date_epoch")
-    public Integer getDateEpoch() {
+    public int getDateEpoch() {
         return dateEpoch;
     }
 
     @JsonProperty("date_epoch")
-    public void setDateEpoch(Integer dateEpoch) {
+    public void setDateEpoch(int dateEpoch) {
         this.dateEpoch = dateEpoch;
     }
 
-    public Forecastday withDateEpoch(Integer dateEpoch) {
+    public Forecastday withDateEpoch(int dateEpoch) {
         this.dateEpoch = dateEpoch;
         return this;
     }

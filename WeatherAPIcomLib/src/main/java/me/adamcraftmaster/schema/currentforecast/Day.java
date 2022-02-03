@@ -61,17 +61,17 @@ public class Day {
     @JsonProperty("avgvis_miles")
     private Double avgvisMiles;
     @JsonProperty("avghumidity")
-    private Double avghumidity;
+    private int avghumidity;
     @JsonProperty("daily_will_it_rain")
-    private Integer dailyWillItRain;
+    private int dailyWillItRain;
     @JsonProperty("daily_chance_of_rain")
-    private Integer dailyChanceOfRain;
+    private int dailyChanceOfRain;
     @JsonProperty("daily_will_it_snow")
-    private Integer dailyWillItSnow;
+    private int dailyWillItSnow;
     @JsonProperty("daily_chance_of_snow")
-    private Integer dailyChanceOfSnow;
+    private int dailyChanceOfSnow;
     @JsonProperty("condition")
-    private Condition__1 condition;
+    private Condition condition;
     @JsonProperty("uv")
     private Double uv;
     @JsonIgnore
@@ -258,91 +258,91 @@ public class Day {
     }
 
     @JsonProperty("avghumidity")
-    public Double getAvghumidity() {
+    public int getAvghumidity() {
         return avghumidity;
     }
 
     @JsonProperty("avghumidity")
-    public void setAvghumidity(Double avghumidity) {
+    public void setAvghumidity(int avghumidity) {
         this.avghumidity = avghumidity;
     }
 
-    public Day withAvghumidity(Double avghumidity) {
+    public Day withAvghumidity(int avghumidity) {
         this.avghumidity = avghumidity;
         return this;
     }
 
     @JsonProperty("daily_will_it_rain")
-    public Integer getDailyWillItRain() {
+    public int getDailyWillItRain() {
         return dailyWillItRain;
     }
 
     @JsonProperty("daily_will_it_rain")
-    public void setDailyWillItRain(Integer dailyWillItRain) {
+    public void setDailyWillItRain(int dailyWillItRain) {
         this.dailyWillItRain = dailyWillItRain;
     }
 
-    public Day withDailyWillItRain(Integer dailyWillItRain) {
+    public Day withDailyWillItRain(int dailyWillItRain) {
         this.dailyWillItRain = dailyWillItRain;
         return this;
     }
 
     @JsonProperty("daily_chance_of_rain")
-    public Integer getDailyChanceOfRain() {
+    public int getDailyChanceOfRain() {
         return dailyChanceOfRain;
     }
 
     @JsonProperty("daily_chance_of_rain")
-    public void setDailyChanceOfRain(Integer dailyChanceOfRain) {
+    public void setDailyChanceOfRain(int dailyChanceOfRain) {
         this.dailyChanceOfRain = dailyChanceOfRain;
     }
 
-    public Day withDailyChanceOfRain(Integer dailyChanceOfRain) {
+    public Day withDailyChanceOfRain(int dailyChanceOfRain) {
         this.dailyChanceOfRain = dailyChanceOfRain;
         return this;
     }
 
     @JsonProperty("daily_will_it_snow")
-    public Integer getDailyWillItSnow() {
+    public int getDailyWillItSnow() {
         return dailyWillItSnow;
     }
 
     @JsonProperty("daily_will_it_snow")
-    public void setDailyWillItSnow(Integer dailyWillItSnow) {
+    public void setDailyWillItSnow(int dailyWillItSnow) {
         this.dailyWillItSnow = dailyWillItSnow;
     }
 
-    public Day withDailyWillItSnow(Integer dailyWillItSnow) {
+    public Day withDailyWillItSnow(int dailyWillItSnow) {
         this.dailyWillItSnow = dailyWillItSnow;
         return this;
     }
 
     @JsonProperty("daily_chance_of_snow")
-    public Integer getDailyChanceOfSnow() {
+    public int getDailyChanceOfSnow() {
         return dailyChanceOfSnow;
     }
 
     @JsonProperty("daily_chance_of_snow")
-    public void setDailyChanceOfSnow(Integer dailyChanceOfSnow) {
+    public void setDailyChanceOfSnow(int dailyChanceOfSnow) {
         this.dailyChanceOfSnow = dailyChanceOfSnow;
     }
 
-    public Day withDailyChanceOfSnow(Integer dailyChanceOfSnow) {
+    public Day withDailyChanceOfSnow(int dailyChanceOfSnow) {
         this.dailyChanceOfSnow = dailyChanceOfSnow;
         return this;
     }
 
     @JsonProperty("condition")
-    public Condition__1 getCondition() {
+    public Condition getCondition() {
         return condition;
     }
 
     @JsonProperty("condition")
-    public void setCondition(Condition__1 condition) {
+    public void setCondition(Condition condition) {
         this.condition = condition;
     }
 
-    public Day withCondition(Condition__1 condition) {
+    public Day withCondition(Condition condition) {
         this.condition = condition;
         return this;
     }

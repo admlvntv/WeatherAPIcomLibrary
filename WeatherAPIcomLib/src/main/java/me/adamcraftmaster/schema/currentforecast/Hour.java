@@ -51,7 +51,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 public class Hour {
 
     @JsonProperty("time_epoch")
-    private Integer timeEpoch;
+    private int timeEpoch;
     @JsonProperty("time")
     private String time;
     @JsonProperty("temp_c")
@@ -59,15 +59,15 @@ public class Hour {
     @JsonProperty("temp_f")
     private Double tempF;
     @JsonProperty("is_day")
-    private Integer isDay;
+    private int isDay;
     @JsonProperty("condition")
-    private Condition__2 condition;
+    private Condition condition;
     @JsonProperty("wind_mph")
     private Double windMph;
     @JsonProperty("wind_kph")
     private Double windKph;
     @JsonProperty("wind_degree")
-    private Integer windDegree;
+    private int windDegree;
     @JsonProperty("wind_dir")
     private String windDir;
     @JsonProperty("pressure_mb")
@@ -79,9 +79,9 @@ public class Hour {
     @JsonProperty("precip_in")
     private Double precipIn;
     @JsonProperty("humidity")
-    private Integer humidity;
+    private int humidity;
     @JsonProperty("cloud")
-    private Integer cloud;
+    private int cloud;
     @JsonProperty("feelslike_c")
     private Double feelslikeC;
     @JsonProperty("feelslike_f")
@@ -99,13 +99,13 @@ public class Hour {
     @JsonProperty("dewpoint_f")
     private Double dewpointF;
     @JsonProperty("will_it_rain")
-    private Integer willItRain;
+    private int willItRain;
     @JsonProperty("chance_of_rain")
-    private Integer chanceOfRain;
+    private int chanceOfRain;
     @JsonProperty("will_it_snow")
-    private Integer willItSnow;
+    private int willItSnow;
     @JsonProperty("chance_of_snow")
-    private Integer chanceOfSnow;
+    private int chanceOfSnow;
     @JsonProperty("vis_km")
     private Double visKm;
     @JsonProperty("vis_miles")
@@ -120,16 +120,16 @@ public class Hour {
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     @JsonProperty("time_epoch")
-    public Integer getTimeEpoch() {
+    public int getTimeEpoch() {
         return timeEpoch;
     }
 
     @JsonProperty("time_epoch")
-    public void setTimeEpoch(Integer timeEpoch) {
+    public void setTimeEpoch(int timeEpoch) {
         this.timeEpoch = timeEpoch;
     }
 
-    public Hour withTimeEpoch(Integer timeEpoch) {
+    public Hour withTimeEpoch(int timeEpoch) {
         this.timeEpoch = timeEpoch;
         return this;
     }
@@ -180,31 +180,31 @@ public class Hour {
     }
 
     @JsonProperty("is_day")
-    public Integer getIsDay() {
+    public int getIsDay() {
         return isDay;
     }
 
     @JsonProperty("is_day")
-    public void setIsDay(Integer isDay) {
+    public void setIsDay(int isDay) {
         this.isDay = isDay;
     }
 
-    public Hour withIsDay(Integer isDay) {
+    public Hour withIsDay(int isDay) {
         this.isDay = isDay;
         return this;
     }
 
     @JsonProperty("condition")
-    public Condition__2 getCondition() {
+    public Condition getCondition() {
         return condition;
     }
 
     @JsonProperty("condition")
-    public void setCondition(Condition__2 condition) {
+    public void setCondition(Condition condition) {
         this.condition = condition;
     }
 
-    public Hour withCondition(Condition__2 condition) {
+    public Hour withCondition(Condition condition) {
         this.condition = condition;
         return this;
     }
@@ -240,16 +240,16 @@ public class Hour {
     }
 
     @JsonProperty("wind_degree")
-    public Integer getWindDegree() {
+    public int getWindDegree() {
         return windDegree;
     }
 
     @JsonProperty("wind_degree")
-    public void setWindDegree(Integer windDegree) {
+    public void setWindDegree(int windDegree) {
         this.windDegree = windDegree;
     }
 
-    public Hour withWindDegree(Integer windDegree) {
+    public Hour withWindDegree(int windDegree) {
         this.windDegree = windDegree;
         return this;
     }
@@ -330,31 +330,31 @@ public class Hour {
     }
 
     @JsonProperty("humidity")
-    public Integer getHumidity() {
+    public int getHumidity() {
         return humidity;
     }
 
     @JsonProperty("humidity")
-    public void setHumidity(Integer humidity) {
+    public void setHumidity(int humidity) {
         this.humidity = humidity;
     }
 
-    public Hour withHumidity(Integer humidity) {
+    public Hour withHumidity(int humidity) {
         this.humidity = humidity;
         return this;
     }
 
     @JsonProperty("cloud")
-    public Integer getCloud() {
+    public int getCloud() {
         return cloud;
     }
 
     @JsonProperty("cloud")
-    public void setCloud(Integer cloud) {
+    public void setCloud(int cloud) {
         this.cloud = cloud;
     }
 
-    public Hour withCloud(Integer cloud) {
+    public Hour withCloud(int cloud) {
         this.cloud = cloud;
         return this;
     }
@@ -480,61 +480,61 @@ public class Hour {
     }
 
     @JsonProperty("will_it_rain")
-    public Integer getWillItRain() {
+    public int getWillItRain() {
         return willItRain;
     }
 
     @JsonProperty("will_it_rain")
-    public void setWillItRain(Integer willItRain) {
+    public void setWillItRain(int willItRain) {
         this.willItRain = willItRain;
     }
 
-    public Hour withWillItRain(Integer willItRain) {
+    public Hour withWillItRain(int willItRain) {
         this.willItRain = willItRain;
         return this;
     }
 
     @JsonProperty("chance_of_rain")
-    public Integer getChanceOfRain() {
+    public int getChanceOfRain() {
         return chanceOfRain;
     }
 
     @JsonProperty("chance_of_rain")
-    public void setChanceOfRain(Integer chanceOfRain) {
+    public void setChanceOfRain(int chanceOfRain) {
         this.chanceOfRain = chanceOfRain;
     }
 
-    public Hour withChanceOfRain(Integer chanceOfRain) {
+    public Hour withChanceOfRain(int chanceOfRain) {
         this.chanceOfRain = chanceOfRain;
         return this;
     }
 
     @JsonProperty("will_it_snow")
-    public Integer getWillItSnow() {
+    public int getWillItSnow() {
         return willItSnow;
     }
 
     @JsonProperty("will_it_snow")
-    public void setWillItSnow(Integer willItSnow) {
+    public void setWillItSnow(int willItSnow) {
         this.willItSnow = willItSnow;
     }
 
-    public Hour withWillItSnow(Integer willItSnow) {
+    public Hour withWillItSnow(int willItSnow) {
         this.willItSnow = willItSnow;
         return this;
     }
 
     @JsonProperty("chance_of_snow")
-    public Integer getChanceOfSnow() {
+    public int getChanceOfSnow() {
         return chanceOfSnow;
     }
 
     @JsonProperty("chance_of_snow")
-    public void setChanceOfSnow(Integer chanceOfSnow) {
+    public void setChanceOfSnow(int chanceOfSnow) {
         this.chanceOfSnow = chanceOfSnow;
     }
 
-    public Hour withChanceOfSnow(Integer chanceOfSnow) {
+    public Hour withChanceOfSnow(int chanceOfSnow) {
         this.chanceOfSnow = chanceOfSnow;
         return this;
     }

@@ -25,7 +25,7 @@ public class Condition {
     @JsonProperty("icon")
     private String icon;
     @JsonProperty("code")
-    private Integer code;
+    private int code;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -60,16 +60,16 @@ public class Condition {
     }
 
     @JsonProperty("code")
-    public Integer getCode() {
+    public int getCode() {
         return code;
     }
 
     @JsonProperty("code")
-    public void setCode(Integer code) {
+    public void setCode(int code) {
         this.code = code;
     }
 
-    public Condition withCode(Integer code) {
+    public Condition withCode(int code) {
         this.code = code;
         return this;
     }
