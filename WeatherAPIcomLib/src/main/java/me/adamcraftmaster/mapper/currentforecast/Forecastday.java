@@ -1,5 +1,5 @@
 
-package me.adamcraftmaster.schema.currentforecast;
+package me.adamcraftmaster.mapper.currentforecast;
 
 import java.util.HashMap;
 import java.util.List;

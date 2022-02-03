@@ -21,7 +21,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import me.adamcraftmaster.enums.SpeedScaleEnum;
 import me.adamcraftmaster.enums.TempScaleEnum;
 import me.adamcraftmaster.exceptions.JSONGetException;
-import me.adamcraftmaster.schema.currentweather.CurrentWeather;
+import me.adamcraftmaster.mapper.currentweather.CurrentWeather;
 import me.adamcraftmaster.utils.JSONParserUtil;
 
 /**

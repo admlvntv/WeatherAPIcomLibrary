@@ -1,5 +1,5 @@
 
-package me.adamcraftmaster.schema.currentforecast;
+package me.adamcraftmaster.mapper.currentforecast;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,8 +13,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "time_epoch",
-    "time",
+    "last_updated_epoch",
+    "last_updated",
     "temp_c",
     "temp_f",
     "is_day",
@@ -31,29 +31,19 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "cloud",
     "feelslike_c",
     "feelslike_f",
-    "windchill_c",
-    "windchill_f",
-    "heatindex_c",
-    "heatindex_f",
-    "dewpoint_c",
-    "dewpoint_f",
-    "will_it_rain",
-    "chance_of_rain",
-    "will_it_snow",
-    "chance_of_snow",
     "vis_km",
     "vis_miles",
+    "uv",
     "gust_mph",
-    "gust_kph",
-    "uv"
+    "gust_kph"
 })
 @Generated("jsonschema2pojo")
-public class Hour {
+public class Current {
 
-    @JsonProperty("time_epoch")
-    private int timeEpoch;
-    @JsonProperty("time")
-    private String time;
+    @JsonProperty("last_updated_epoch")
+    private int lastUpdatedEpoch;
+    @JsonProperty("last_updated")
+    private String lastUpdated;
     @JsonProperty("temp_c")
     private Double tempC;
     @JsonProperty("temp_f")
@@ -86,66 +76,46 @@ public class Hour {
     private Double feelslikeC;
     @JsonProperty("feelslike_f")
     private Double feelslikeF;
-    @JsonProperty("windchill_c")
-    private Double windchillC;
-    @JsonProperty("windchill_f")
-    private Double windchillF;
-    @JsonProperty("heatindex_c")
-    private Double heatindexC;
-    @JsonProperty("heatindex_f")
-    private Double heatindexF;
-    @JsonProperty("dewpoint_c")
-    private Double dewpointC;
-    @JsonProperty("dewpoint_f")
-    private Double dewpointF;
-    @JsonProperty("will_it_rain")
-    private int willItRain;
-    @JsonProperty("chance_of_rain")
-    private int chanceOfRain;
-    @JsonProperty("will_it_snow")
-    private int willItSnow;
-    @JsonProperty("chance_of_snow")
-    private int chanceOfSnow;
     @JsonProperty("vis_km")
     private Double visKm;
     @JsonProperty("vis_miles")
     private Double visMiles;
+    @JsonProperty("uv")
+    private Double uv;
     @JsonProperty("gust_mph")
     private Double gustMph;
     @JsonProperty("gust_kph")
     private Double gustKph;
-    @JsonProperty("uv")
-    private Double uv;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    @JsonProperty("time_epoch")
-    public int getTimeEpoch() {
-        return timeEpoch;
+    @JsonProperty("last_updated_epoch")
+    public int getLastUpdatedEpoch() {
+        return lastUpdatedEpoch;
     }
 
-    @JsonProperty("time_epoch")
-    public void setTimeEpoch(int timeEpoch) {
-        this.timeEpoch = timeEpoch;
+    @JsonProperty("last_updated_epoch")
+    public void setLastUpdatedEpoch(int lastUpdatedEpoch) {
+        this.lastUpdatedEpoch = lastUpdatedEpoch;
     }
 
-    public Hour withTimeEpoch(int timeEpoch) {
-        this.timeEpoch = timeEpoch;
+    public Current withLastUpdatedEpoch(int lastUpdatedEpoch) {
+        this.lastUpdatedEpoch = lastUpdatedEpoch;
         return this;
     }
 
-    @JsonProperty("time")
-    public String getTime() {
-        return time;
+    @JsonProperty("last_updated")
+    public String getLastUpdated() {
+        return lastUpdated;
     }
 
-    @JsonProperty("time")
-    public void setTime(String time) {
-        this.time = time;
+    @JsonProperty("last_updated")
+    public void setLastUpdated(String lastUpdated) {
+        this.lastUpdated = lastUpdated;
     }
 
-    public Hour withTime(String time) {
-        this.time = time;
+    public Current withLastUpdated(String lastUpdated) {
+        this.lastUpdated = lastUpdated;
         return this;
     }
 
@@ -159,7 +129,7 @@ public class Hour {
         this.tempC = tempC;
     }
 
-    public Hour withTempC(Double tempC) {
+    public Current withTempC(Double tempC) {
         this.tempC = tempC;
         return this;
     }
@@ -174,7 +144,7 @@ public class Hour {
         this.tempF = tempF;
     }
 
-    public Hour withTempF(Double tempF) {
+    public Current withTempF(Double tempF) {
         this.tempF = tempF;
         return this;
     }
@@ -189,7 +159,7 @@ public class Hour {
         this.isDay = isDay;
     }
 
-    public Hour withIsDay(int isDay) {
+    public Current withIsDay(int isDay) {
         this.isDay = isDay;
         return this;
     }
@@ -204,7 +174,7 @@ public class Hour {
         this.condition = condition;
     }
 
-    public Hour withCondition(Condition condition) {
+    public Current withCondition(Condition condition) {
         this.condition = condition;
         return this;
     }
@@ -219,7 +189,7 @@ public class Hour {
         this.windMph = windMph;
     }
 
-    public Hour withWindMph(Double windMph) {
+    public Current withWindMph(Double windMph) {
         this.windMph = windMph;
         return this;
     }
@@ -234,7 +204,7 @@ public class Hour {
         this.windKph = windKph;
     }
 
-    public Hour withWindKph(Double windKph) {
+    public Current withWindKph(Double windKph) {
         this.windKph = windKph;
         return this;
     }
@@ -249,7 +219,7 @@ public class Hour {
         this.windDegree = windDegree;
     }
 
-    public Hour withWindDegree(int windDegree) {
+    public Current withWindDegree(int windDegree) {
         this.windDegree = windDegree;
         return this;
     }
@@ -264,7 +234,7 @@ public class Hour {
         this.windDir = windDir;
     }
 
-    public Hour withWindDir(String windDir) {
+    public Current withWindDir(String windDir) {
         this.windDir = windDir;
         return this;
     }
@@ -279,7 +249,7 @@ public class Hour {
         this.pressureMb = pressureMb;
     }
 
-    public Hour withPressureMb(Double pressureMb) {
+    public Current withPressureMb(Double pressureMb) {
         this.pressureMb = pressureMb;
         return this;
     }
@@ -294,7 +264,7 @@ public class Hour {
         this.pressureIn = pressureIn;
     }
 
-    public Hour withPressureIn(Double pressureIn) {
+    public Current withPressureIn(Double pressureIn) {
         this.pressureIn = pressureIn;
         return this;
     }
@@ -309,7 +279,7 @@ public class Hour {
         this.precipMm = precipMm;
     }
 
-    public Hour withPrecipMm(Double precipMm) {
+    public Current withPrecipMm(Double precipMm) {
         this.precipMm = precipMm;
         return this;
     }
@@ -324,7 +294,7 @@ public class Hour {
         this.precipIn = precipIn;
     }
 
-    public Hour withPrecipIn(Double precipIn) {
+    public Current withPrecipIn(Double precipIn) {
         this.precipIn = precipIn;
         return this;
     }
@@ -339,7 +309,7 @@ public class Hour {
         this.humidity = humidity;
     }
 
-    public Hour withHumidity(int humidity) {
+    public Current withHumidity(int humidity) {
         this.humidity = humidity;
         return this;
     }
@@ -354,7 +324,7 @@ public class Hour {
         this.cloud = cloud;
     }
 
-    public Hour withCloud(int cloud) {
+    public Current withCloud(int cloud) {
         this.cloud = cloud;
         return this;
     }
@@ -369,7 +339,7 @@ public class Hour {
         this.feelslikeC = feelslikeC;
     }
 
-    public Hour withFeelslikeC(Double feelslikeC) {
+    public Current withFeelslikeC(Double feelslikeC) {
         this.feelslikeC = feelslikeC;
         return this;
     }
@@ -384,158 +354,8 @@ public class Hour {
         this.feelslikeF = feelslikeF;
     }
 
-    public Hour withFeelslikeF(Double feelslikeF) {
+    public Current withFeelslikeF(Double feelslikeF) {
         this.feelslikeF = feelslikeF;
-        return this;
-    }
-
-    @JsonProperty("windchill_c")
-    public Double getWindchillC() {
-        return windchillC;
-    }
-
-    @JsonProperty("windchill_c")
-    public void setWindchillC(Double windchillC) {
-        this.windchillC = windchillC;
-    }
-
-    public Hour withWindchillC(Double windchillC) {
-        this.windchillC = windchillC;
-        return this;
-    }
-
-    @JsonProperty("windchill_f")
-    public Double getWindchillF() {
-        return windchillF;
-    }
-
-    @JsonProperty("windchill_f")
-    public void setWindchillF(Double windchillF) {
-        this.windchillF = windchillF;
-    }
-
-    public Hour withWindchillF(Double windchillF) {
-        this.windchillF = windchillF;
-        return this;
-    }
-
-    @JsonProperty("heatindex_c")
-    public Double getHeatindexC() {
-        return heatindexC;
-    }
-
-    @JsonProperty("heatindex_c")
-    public void setHeatindexC(Double heatindexC) {
-        this.heatindexC = heatindexC;
-    }
-
-    public Hour withHeatindexC(Double heatindexC) {
-        this.heatindexC = heatindexC;
-        return this;
-    }
-
-    @JsonProperty("heatindex_f")
-    public Double getHeatindexF() {
-        return heatindexF;
-    }
-
-    @JsonProperty("heatindex_f")
-    public void setHeatindexF(Double heatindexF) {
-        this.heatindexF = heatindexF;
-    }
-
-    public Hour withHeatindexF(Double heatindexF) {
-        this.heatindexF = heatindexF;
-        return this;
-    }
-
-    @JsonProperty("dewpoint_c")
-    public Double getDewpointC() {
-        return dewpointC;
-    }
-
-    @JsonProperty("dewpoint_c")
-    public void setDewpointC(Double dewpointC) {
-        this.dewpointC = dewpointC;
-    }
-
-    public Hour withDewpointC(Double dewpointC) {
-        this.dewpointC = dewpointC;
-        return this;
-    }
-
-    @JsonProperty("dewpoint_f")
-    public Double getDewpointF() {
-        return dewpointF;
-    }
-
-    @JsonProperty("dewpoint_f")
-    public void setDewpointF(Double dewpointF) {
-        this.dewpointF = dewpointF;
-    }
-
-    public Hour withDewpointF(Double dewpointF) {
-        this.dewpointF = dewpointF;
-        return this;
-    }
-
-    @JsonProperty("will_it_rain")
-    public int getWillItRain() {
-        return willItRain;
-    }
-
-    @JsonProperty("will_it_rain")
-    public void setWillItRain(int willItRain) {
-        this.willItRain = willItRain;
-    }
-
-    public Hour withWillItRain(int willItRain) {
-        this.willItRain = willItRain;
-        return this;
-    }
-
-    @JsonProperty("chance_of_rain")
-    public int getChanceOfRain() {
-        return chanceOfRain;
-    }
-
-    @JsonProperty("chance_of_rain")
-    public void setChanceOfRain(int chanceOfRain) {
-        this.chanceOfRain = chanceOfRain;
-    }
-
-    public Hour withChanceOfRain(int chanceOfRain) {
-        this.chanceOfRain = chanceOfRain;
-        return this;
-    }
-
-    @JsonProperty("will_it_snow")
-    public int getWillItSnow() {
-        return willItSnow;
-    }
-
-    @JsonProperty("will_it_snow")
-    public void setWillItSnow(int willItSnow) {
-        this.willItSnow = willItSnow;
-    }
-
-    public Hour withWillItSnow(int willItSnow) {
-        this.willItSnow = willItSnow;
-        return this;
-    }
-
-    @JsonProperty("chance_of_snow")
-    public int getChanceOfSnow() {
-        return chanceOfSnow;
-    }
-
-    @JsonProperty("chance_of_snow")
-    public void setChanceOfSnow(int chanceOfSnow) {
-        this.chanceOfSnow = chanceOfSnow;
-    }
-
-    public Hour withChanceOfSnow(int chanceOfSnow) {
-        this.chanceOfSnow = chanceOfSnow;
         return this;
     }
 
@@ -549,7 +369,7 @@ public class Hour {
         this.visKm = visKm;
     }
 
-    public Hour withVisKm(Double visKm) {
+    public Current withVisKm(Double visKm) {
         this.visKm = visKm;
         return this;
     }
@@ -564,8 +384,23 @@ public class Hour {
         this.visMiles = visMiles;
     }
 
-    public Hour withVisMiles(Double visMiles) {
+    public Current withVisMiles(Double visMiles) {
         this.visMiles = visMiles;
+        return this;
+    }
+
+    @JsonProperty("uv")
+    public Double getUv() {
+        return uv;
+    }
+
+    @JsonProperty("uv")
+    public void setUv(Double uv) {
+        this.uv = uv;
+    }
+
+    public Current withUv(Double uv) {
+        this.uv = uv;
         return this;
     }
 
@@ -579,7 +414,7 @@ public class Hour {
         this.gustMph = gustMph;
     }
 
-    public Hour withGustMph(Double gustMph) {
+    public Current withGustMph(Double gustMph) {
         this.gustMph = gustMph;
         return this;
     }
@@ -594,23 +429,8 @@ public class Hour {
         this.gustKph = gustKph;
     }
 
-    public Hour withGustKph(Double gustKph) {
+    public Current withGustKph(Double gustKph) {
         this.gustKph = gustKph;
-        return this;
-    }
-
-    @JsonProperty("uv")
-    public Double getUv() {
-        return uv;
-    }
-
-    @JsonProperty("uv")
-    public void setUv(Double uv) {
-        this.uv = uv;
-    }
-
-    public Hour withUv(Double uv) {
-        this.uv = uv;
         return this;
     }
 
@@ -624,7 +444,7 @@ public class Hour {
         this.additionalProperties.put(name, value);
     }
 
-    public Hour withAdditionalProperty(String name, Object value) {
+    public Current withAdditionalProperty(String name, Object value) {
         this.additionalProperties.put(name, value);
         return this;
     }

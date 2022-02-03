@@ -19,7 +19,7 @@ package me.adamcraftmaster;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import me.adamcraftmaster.exceptions.JSONGetException;
-import me.adamcraftmaster.schema.currentweather.CurrentWeather;
+import me.adamcraftmaster.mapper.currentweather.CurrentWeather;
 import me.adamcraftmaster.utils.JSONParserUtil;
 
 /**

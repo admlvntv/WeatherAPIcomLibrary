@@ -14,7 +14,7 @@
    limitations under the License.
 */
 
-package me.adamcraftmaster.schema.currentweather;
+package me.adamcraftmaster.mapper.currentweather;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
