@@ -16,11 +16,11 @@
 
 package me.adamcraftmaster;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
+import java.io.IOException;
 import me.adamcraftmaster.enums.TempScaleEnum;
-import me.adamcraftmaster.exceptions.JSONGetException;
 import org.junit.jupiter.api.Test;
 
 class LibraryTest {
@@ -39,10 +39,8 @@ class LibraryTest {
           "Sunny",
           weatherConditions,
           "expected conditions is Sunny, received " + weatherConditions);
-    } catch (JsonProcessingException e) {
-      fail("JsonProcessingException thrown");
-    } catch (JSONGetException e) {
-      fail("JSONGetException thrown, cause: " + e.getMessage());
+    } catch (IOException e) {
+      fail("IOException thrown, cause: " + e.getMessage());
     }
   }
 
@@ -53,10 +51,8 @@ class LibraryTest {
       double temperature = classUnderTest.getCurrentTemperature("London", TempScaleEnum.CELCIUS);
       assertEquals(
           8.0, temperature, "expected temperature is 8.0 degrees celcius, received " + temperature);
-    } catch (JsonProcessingException e) {
-      fail("JsonProcessingException thrown");
-    } catch (JSONGetException e) {
-      fail("JSONGetException thrown, cause: " + e.getMessage());
+    } catch (IOException e) {
+      fail("IOException thrown, cause: " + e.getMessage());
     }
   }
 }

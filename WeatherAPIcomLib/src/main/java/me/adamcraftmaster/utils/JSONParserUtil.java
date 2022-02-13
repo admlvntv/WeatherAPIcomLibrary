@@ -16,13 +16,11 @@
 
 package me.adamcraftmaster.utils;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.net.URLConnection;
-import java.util.zip.GZIPInputStream;
-import me.adamcraftmaster.exceptions.JSONGetException;
+import java.util.Objects;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 /**
  * A class that parses URLs
@@ -31,7 +29,9 @@ import me.adamcraftmaster.exceptions.JSONGetException;
  */
 public final class JSONParserUtil {
 
-  /** This is a utlity class, it should not be instantiated. */
+  private static final OkHttpClient client = new OkHttpClient();
+
+  /** This is a utility class, it should not be instantiated. */
   private JSONParserUtil() {
     throw new IllegalStateException("Utility class");
   }
@@ -41,66 +41,28 @@ public final class JSONParserUtil {
    *
    * @param urlString a URL that contains a JSON object
    * @return String a JSON as a string from the URL
-   * @throws JSONGetException something went wrong with getting the JSON from weatherapi.com
+   * @throws IOException something went wrong with getting the JSON from weatherapi.com
    * @since 0.1.0
    */
-  public static String urlToJson(String urlString) throws JSONGetException {
-    StringBuilder sb = null;
-    URL url;
-    URLConnection urlCon;
-    try {
-      url = new URL(urlString);
-      urlCon = url.openConnection();
-      BufferedReader in = null;
-      // if using gzip, use GZIPInputStream
-      if (urlCon.getHeaderField("Content-Encoding") != null
-          && urlCon.getHeaderField("Content-Encoding").equals("gzip")) {
-        in =
-            new BufferedReader(new InputStreamReader(new GZIPInputStream(urlCon.getInputStream())));
-      } else {
-        in = new BufferedReader(new InputStreamReader(urlCon.getInputStream()));
+  public static String urlToJson(String urlString) throws IOException {
+    Request request = new Request.Builder().url(urlString).build();
+    try (Response response = client.newCall(request).execute()) {
+      if (response.code() != 200) {
+        throw new IOException("Failed request! Response code " + response.code());
       }
-      String inputLine;
-      sb = new StringBuilder();
-
-      // add every new line to the string until the end of the input
-      while ((inputLine = in.readLine()) != null) {
-        sb.append(inputLine);
-      }
-      // not needed anymore
-      in.close();
+      return Objects.requireNonNull(response.body()).string();
+    } catch (NullPointerException e) {
+      throw new IOException("Response was null.");
     } catch (IOException e) {
-      System.out.println("Exception while reading JSON from URL - " + e.getMessage());
-      sendError(e);
-    }
-    if (sb != null) {
-      // JSON was found, return it as a string
-      return sb.toString();
-    } else {
-      // no JSON was found, return an empty string
-      System.out.println("No JSON Found in given URL");
-      return "";
-    }
-  }
-
-  /**
-   * Sends an exception based on the given IOException
-   *
-   * @param exception an exception that caused the failiure of getting the JSON from the URL.
-   * @throws JSONGetException something went wrong with getting the JSON from weatherapi.com
-   * @since 0.1.0
-   */
-  private static void sendError(IOException exception) throws JSONGetException {
-    String[] error = exception.getMessage().split(":");
-    for (String t : error) {
-      if (t.contains("400")) {
-        throw new JSONGetException("Invalid API request.");
-      } else if (t.contains("401")) {
-        throw new JSONGetException("Invalid API key.");
-      } else if (t.contains("403")) {
-        throw new JSONGetException("Disabled API key.");
+      String exceptionMessage = e.getMessage();
+      if (exceptionMessage.contains("400")) {
+        throw new IOException(exceptionMessage + ": Invalid API request.");
+      } else if (exceptionMessage.contains("401")) {
+        throw new IOException(exceptionMessage + ": Invalid API key.");
+      } else if (exceptionMessage.contains("403")) {
+        throw new IOException(exceptionMessage + ": Disabled API key.");
       } else {
-        throw new JSONGetException(exception.getMessage());
+        throw new IOException(exceptionMessage);
       }
     }
   }
