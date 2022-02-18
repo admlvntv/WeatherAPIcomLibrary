@@ -17,7 +17,9 @@
 package me.adamcraftmaster.utils;
 
 import java.io.IOException;
-import java.util.Objects;
+import java.util.concurrent.TimeUnit;
+import okhttp3.Call;
+import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -29,7 +31,11 @@ import okhttp3.Response;
  */
 public final class JSONParserUtil {
 
-  private static final OkHttpClient client = new OkHttpClient();
+  private static final OkHttpClient client = new OkHttpClient.Builder()
+//      .readTimeout(100, TimeUnit.MILLISECONDS)
+//      .writeTimeout(100, TimeUnit.MILLISECONDS)
+      .retryOnConnectionFailure(false)
+      .build();
 
   /** This is a utility class, it should not be instantiated. */
   private JSONParserUtil() {
@@ -45,12 +51,16 @@ public final class JSONParserUtil {
    * @since 0.1.0
    */
   public static String urlToJson(String urlString) throws IOException {
-    Request request = new Request.Builder().url(urlString).build();
-    try (Response response = client.newCall(request).execute()) {
+    Request request = new Request.Builder()
+        .url(urlString)
+        .build();
+    Call call = client.newCall(request);
+    try {
+      Response response = call.execute();
       if (response.code() != 200) {
         throw new IOException("Failed request! Response code " + response.code());
       }
-      return Objects.requireNonNull(response.body()).string();
+      return response.body().string();
     } catch (NullPointerException e) {
       throw new IOException("Response was null.");
     } catch (IOException e) {
@@ -66,4 +76,5 @@ public final class JSONParserUtil {
       }
     }
   }
+
 }
