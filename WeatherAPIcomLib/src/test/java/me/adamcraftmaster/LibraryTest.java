@@ -16,11 +16,23 @@
 
 package me.adamcraftmaster;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
+import java.io.IOException;
+import java.net.InetAddress;
+import java.util.concurrent.TimeUnit;
 import me.adamcraftmaster.enums.TempScaleEnum;
-import me.adamcraftmaster.exceptions.JSONGetException;
+import me.adamcraftmaster.utils.JSONParserUtil;
+import okhttp3.Call;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+import okhttp3.mockwebserver.MockResponse;
+import okhttp3.mockwebserver.MockWebServer;
+import okhttp3.mockwebserver.RecordedRequest;
+import org.junit.Rule;
 import org.junit.jupiter.api.Test;
 
 class LibraryTest {
@@ -39,10 +51,8 @@ class LibraryTest {
           "Sunny",
           weatherConditions,
           "expected conditions is Sunny, received " + weatherConditions);
-    } catch (JsonProcessingException e) {
-      fail("JsonProcessingException thrown");
-    } catch (JSONGetException e) {
-      fail("JSONGetException thrown, cause: " + e.getMessage());
+    } catch (IOException e) {
+      fail("IOException thrown, cause: " + e.getMessage());
     }
   }
 
@@ -53,10 +63,57 @@ class LibraryTest {
       double temperature = classUnderTest.getCurrentTemperature("London", TempScaleEnum.CELCIUS);
       assertEquals(
           8.0, temperature, "expected temperature is 8.0 degrees celcius, received " + temperature);
-    } catch (JsonProcessingException e) {
-      fail("JsonProcessingException thrown");
-    } catch (JSONGetException e) {
-      fail("JSONGetException thrown, cause: " + e.getMessage());
+    } catch (IOException e) {
+      fail("IOException thrown, cause: " + e.getMessage());
     }
   }
+
+  // The following tests are for JSONParserUtil
+  public MockWebServer server = new MockWebServer();
+  public OkHttpClient client = new OkHttpClient.Builder()
+      .readTimeout(100, TimeUnit.MILLISECONDS)
+      .writeTimeout(100, TimeUnit.MILLISECONDS)
+      .build();
+
+  @Test
+  void testGetJsonFromUrl() throws Exception {
+    // configure a MockResponse for the request
+    server.enqueue(new MockResponse()
+        .setBody("Test")
+        .setHeader("Content-Type", "application/json")
+        .setResponseCode(200)
+    );
+
+    // start MockWebServer
+    server.start();
+
+    // create request targeting the MockWebServer
+    Request request = new Request.Builder()
+        .url(server.url("/"))
+        .header("User-Agent", "MockWebServerTest")
+        .build();
+
+    // make the request with OkHttp
+    Call call = client.newCall(request);
+    Response response = call.execute();
+
+    // verify response
+    assertEquals(200, response.code());
+    assertTrue(response.isSuccessful());
+    assertEquals("application/json", response.header("Content-Type"));
+    System.out.println(server.url("/"));
+    String json = JSONParserUtil.urlToJson(server.url("/").toString());
+    assertEquals(currentJSON, json, "expected JSON is " + currentJSON + ", received " + json);
+
+    // verify incoming request on server-side
+    System.out.println("making recordedrequest");
+    RecordedRequest recordedRequest = recordedRequest = server.takeRequest();
+    assertEquals("GET", recordedRequest.getMethod());
+    assertEquals("MockWebServerTest", recordedRequest.getHeader("User-Agent"));
+    assertEquals(server.url("/"), recordedRequest.getRequestUrl());
+    System.out.println("done with recordedrequest");
+  }
+
+  @Test
+  void delMe() throws IOException {}
 }
