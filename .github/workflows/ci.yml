@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2.4.0
+    - uses: actions/checkout@v3.0.0
     - name: Set up JDK
       uses: actions/setup-java@v2
       with:
@@ -50,7 +50,7 @@ jobs:
       name: Sonar Build
       runs-on: ubuntu-latest
       steps:
-        - uses: actions/checkout@v2
+        - uses: actions/checkout@v3
           with:
             fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
         - name: Set up JDK 11
