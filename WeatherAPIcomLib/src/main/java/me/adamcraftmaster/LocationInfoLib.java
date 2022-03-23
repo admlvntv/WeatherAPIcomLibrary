@@ -19,7 +19,7 @@ package me.adamcraftmaster;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import me.adamcraftmaster.exceptions.JSONGetException;
-import me.adamcraftmaster.schema.currentweather.CurrentWeather;
+import me.adamcraftmaster.mapper.currentweather.CurrentWeather;
 import me.adamcraftmaster.utils.JSONParserUtil;
 
 /**
@@ -59,7 +59,7 @@ public class LocationInfoLib {
   }
 
   /**
-   * Automatically deserialize the current.json using given API key and region.
+   * Automatically convert to object the current.json using given API key and region.
    *
    * @param region the region, can be given as US Zipcode, UK Postcode, Canada Postalcode, IP
    *     address, Latitude/Longitude (decimal degree) or city name

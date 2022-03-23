@@ -14,7 +14,7 @@
    limitations under the License.
 */
 
-package me.adamcraftmaster.schema.currentweather;
+package me.adamcraftmaster.mapper.currentweather;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
@@ -27,57 +27,81 @@ import java.util.Map;
 import javax.annotation.Generated;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({"location", "current"})
+@JsonPropertyOrder({"text", "icon", "code"})
 @Generated("jsonschema2pojo")
-public class CurrentWeather {
+public class Condition {
 
-  @JsonProperty("location")
-  private Location location;
+  @JsonProperty("text")
+  private String text;
 
-  @JsonProperty("current")
-  private Current current;
+  @JsonProperty("icon")
+  private String icon;
+
+  @JsonProperty("code")
+  private int code;
 
   @JsonIgnore private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-  /** @return Location */
-  @JsonProperty("location")
-  public Location getLocation() {
-    return location;
+  /** @return String Weather condition text */
+  @JsonProperty("text")
+  public String getText() {
+    return text;
   }
 
-  /** @param location */
-  @JsonProperty("location")
-  public void setLocation(Location location) {
-    this.location = location;
+  /** @param text Weather condition text */
+  @JsonProperty("text")
+  public void setText(String text) {
+    this.text = text;
   }
 
   /**
-   * @param location
-   * @return CurrentWeather
+   * @param text Weather condition text
+   * @return Condition
    */
-  public CurrentWeather withLocation(Location location) {
-    this.location = location;
+  public Condition withText(String text) {
+    this.text = text;
     return this;
   }
 
-  /** @return Current */
-  @JsonProperty("current")
-  public Current getCurrent() {
-    return current;
+  /** @return String Weather icon url */
+  @JsonProperty("icon")
+  public String getIcon() {
+    return icon;
   }
 
-  /** @param current */
-  @JsonProperty("current")
-  public void setCurrent(Current current) {
-    this.current = current;
+  /** @param icon Weather icon url */
+  @JsonProperty("icon")
+  public void setIcon(String icon) {
+    this.icon = icon;
   }
 
   /**
-   * @param current
-   * @return CurrentWeather
+   * @param icon Weather icon url
+   * @return Condition
    */
-  public CurrentWeather withCurrent(Current current) {
-    this.current = current;
+  public Condition withIcon(String icon) {
+    this.icon = icon;
+    return this;
+  }
+
+  /** @return int Weather condition unique code */
+  @JsonProperty("code")
+  public int getCode() {
+    return code;
+  }
+
+  /** @param code Weather condition unique code */
+  @JsonProperty("code")
+  public void setCode(int code) {
+    this.code = code;
+  }
+
+  /**
+   * @param code Weather condition unique code
+   * @return Condition
+   */
+  public Condition withCode(int code) {
+    this.code = code;
     return this;
   }
 
@@ -98,9 +122,9 @@ public class CurrentWeather {
   /**
    * @param name
    * @param value
-   * @return CurrentWeather
+   * @return Condition
    */
-  public CurrentWeather withAdditionalProperty(String name, Object value) {
+  public Condition withAdditionalProperty(String name, Object value) {
     this.additionalProperties.put(name, value);
     return this;
   }
